@@ -1,0 +1,9 @@
+.tip {
+  background-color: var(--tip-bg-color);
+  padding: 1rem;
+
+  &::before {
+    content: "Совет: ";
+    font-weight: 600;
+  }
+}

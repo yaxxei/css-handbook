@@ -1,0 +1,54 @@
+pre[class*="language-"] {
+  background-color: var(--code-bg-color) !important;
+  position: relative;
+  padding-top: 2rem !important;
+
+  /* .token.doctype :not(.token.name) {
+    color: #ffb948;
+  } */
+
+  .token {
+    &.keyword {
+      color: var(--code-keyword-color);
+      font-weight: bold;
+    }
+    &.string {
+      color: var(--code-string-color);
+    }
+    &.number {
+      color: var(--code-number-color);
+    }
+    &.operator {
+      color: var(--code-operator-color);
+    }
+    &.comment {
+      color: var(--code-comment-color);
+      font-style: italic;
+    }
+    &.tag {
+      color: var(--code-tag-color);
+    }
+    &.attr-name {
+      color: var(--code-attribute-color);
+    }
+    &.function {
+      color: var(--code-function-color);
+    }
+    &.punctuation {
+      color: var(--code-punctuation-color);
+    }
+  }
+
+  /* for design only, todo: add to html */
+  button.copy {
+    position: absolute;
+    top: 0;
+    right: 1rem;
+    cursor: pointer;
+    background-color: #2d2d2d;
+    color: var(--fg-color);
+    border: none;
+    font-size: 12px;
+    padding: 0.3rem 0.5rem;
+  }
+}

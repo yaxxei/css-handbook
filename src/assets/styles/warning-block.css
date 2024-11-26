@@ -1,0 +1,9 @@
+.warning {
+  background-color: var(--warning-bg-color);
+  padding: 1rem;
+
+  &::before {
+    content: "Предупрждение: ";
+    font-weight: 600;
+  }
+}

@@ -1,0 +1,64 @@
+#sidebar {
+  background-color: var(--sidebar-bg-color);
+  padding: 20px;
+  width: var(--sidebar-width);
+  overflow-y: auto;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  transition: var(--sidebar-hiding-time) ease-in-out;
+
+  ol,
+  ul {
+    list-style: none;
+
+    a {
+      color: var(--fg-color);
+      text-decoration: none;
+    }
+
+    li {
+      margin-bottom: 0.5rem;
+
+      &.active > a {
+        color: var(--link-color);
+      }
+
+      a:hover {
+        color: var(--link-color);
+      }
+    }
+  }
+
+  > ol {
+    counter-reset: section;
+
+    > li {
+      counter-increment: section;
+
+      a::before {
+        content: counter(section) ". ";
+        font-weight: 700;
+      }
+    }
+
+    > ol {
+      counter-reset: subsection;
+      margin-left: 1rem;
+
+      > li {
+        counter-increment: subsection;
+
+        a::before {
+          content: counter(section) "." counter(subsection) ". ";
+          font-weight: 700;
+        }
+      }
+    }
+  }
+
+  &.hiding {
+    left: calc(0px - var(--sidebar-width));
+  }
+}

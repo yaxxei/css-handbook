@@ -1,0 +1,72 @@
+@import url("sidebar.css");
+@import url("content.css");
+@import url("scrollbar.css");
+@import url("header.css");
+@import url("note-block.css");
+@import url("warning-block.css");
+@import url("tip-block.css");
+@import url("code-block.css");
+@import url("clipboard-copy-toast.css");
+
+:root {
+  /* base */
+  --bg-color: #161923;
+  --fg-color: #bcbdd0;
+  --link-color: #1c5ca2;
+  --sidebar-bg-color: #282d3f;
+  --note-bg-color: #252832;
+  --warning-bg-color: #403a2e;
+  --tip-bg-color: #2e423e;
+  --code-bg-color: #1d1f21;
+  --toast-bg-color: #1d1f21;
+  --icon-color: #737480;
+  --bg-hover-color: #282e40;
+
+  /* code syntax highliting */
+  --code-text-color: #dcdcdc;
+  --code-keyword-color: #c678dd;
+  --code-string-color: #98c379;
+  --code-number-color: #d19a66;
+  --code-operator-color: #56b6c2;
+  --code-comment-color: #5c6370;
+  --code-tag-color: #e06c75;
+  --code-attribute-color: #61afef;
+  --code-function-color: #61afef;
+  --code-punctuation-color: #abb2bf;
+
+  --sidebar-width: 300px;
+  --header-height: 50px;
+
+  --sidebar-hiding-time: 0.2s;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  color: var(--link-color);
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  background-color: var(--bg-color);
+  color: var(--fg-color);
+  min-height: 100vh;
+}
+
+/* Обёртка страницы */
+#page-wrapper {
+  margin-left: var(--sidebar-width);
+  padding: 20px;
+  flex-grow: 1;
+  transition: var(--sidebar-hiding-time) ease-in-out;
+
+  &.growing {
+    margin-left: 0px;
+  }
+}

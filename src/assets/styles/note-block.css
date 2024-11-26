@@ -1,0 +1,9 @@
+.note {
+  background-color: var(--note-bg-color);
+  padding: 1rem;
+
+  &::before {
+    content: "Примечание: ";
+    font-weight: 600;
+  }
+}

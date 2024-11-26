@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="assets/styles/index.css" />
+
+    <!-- FONTS -->
+    <!-- OPEN SANS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800"
+      rel="stylesheet"
+    />
+
+    <!-- PRISM STYLES -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.css"
+      rel="stylesheet"
+    />
+    <!-- PRISM LIB -->
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.js"></script>
+
+    <title>The CSS Handbook</title>
+  </head>
+
+  <body>
+    <div id="sidebar">
+      <ul>
+        <li><a href="00-00-about-book.html">Справочник по CSS</a></li>
+        <li><a href="00-01-intro.html">Введение</a></li>
+      </ul>
+      <ol>
+        <li><a href="01-00-getting-started.html">Начало</a></li>
+        <ol>
+          <li>
+            <a href="01-01-css-connection.html">Подключение CSS к HTML</a>
+          </li>
+        </ol>
+
+        <li>
+          <a href="02-00-syntax-and-structure.html">Синтаксис и структура</a>
+        </li>
+        <ol>
+          <li>
+            <a href="02-01-selector-property-value.html"
+              >Селектор, свойство, значение</a
+            >
+          </li>
+          <li><a href="02-02-priority.html">Приоритетность</a></li>
+          <li><a href="02-03-important.html">!important</a></li>
+        </ol>
+
+        <li>
+          <a href="03-00-advanced-selectors.html">Продвинутые селекторы</a>
+        </li>
+        <ol>
+          <li>
+            <a href="03-01-group-adjacent-child.html"
+              >Групповые, соседние, дочерние</a
+            >
+          </li>
+          <li>
+            <a href="03-02-attribute-selectors.html">Атрибутные селекторы</a>
+          </li>
+          <li>
+            <a href="03-03-universal-selector.html">Универсальный селектор</a>
+          </li>
+        </ol>
+
+        <li>
+          <a href="04-00-pseudo-classes-elements.html"
+            >Псевдоклассы и псевдоэлементы</a
+          >
+        </li>
+        <ol>
+          <li>
+            <a href="04-01-pseudo-classes.html"
+              >Псевдоклассы (:hover, :focus, :nth-child и т.д.)</a
+            >
+          </li>
+          <li>
+            <a href="04-02-pseudo-elements.html"
+              >Псевдоэлементы (::before, ::after)</a
+            >
+          </li>
+          <li>
+            <a href="04-03-interactive-styling.html"
+              >Стилизация интерактивных элементов</a
+            >
+          </li>
+        </ol>
+
+        <li><a href="05-00-box-model.html">Блочная модель</a></li>
+        <ol>
+          <li>
+            <a href="05-01-box-model-types.html"
+              >Понятия "Блочная модель" и "Типы отображения"</a
+            >
+          </li>
+          <li>
+            <a href="05-02-margin-padding-border.html"
+              >Параметры margin, padding, border</a
+            >
+          </li>
+          <li>
+            <a href="05-03-box-sizing-overflow.html"
+              >Свойства box-sizing, overflow</a
+            >
+          </li>
+        </ol>
+
+        <li>
+          <a href="06-00-layout-alignment.html">Раскладка и выравнивание</a>
+        </li>
+        <ol>
+          <li><a href="06-01-flexbox.html">Flexbox</a></li>
+          <li><a href="06-02-grid-layout.html">Grid Layout</a></li>
+          <li>
+            <a href="06-03-positioning.html">Позиционирование элементов</a>
+          </li>
+        </ol>
+
+        <li>
+          <a href="07-00-typography-text.html"
+            >Типографика и работа с текстом</a
+          >
+        </li>
+        <ol>
+          <li>
+            <a href="07-01-fonts.html"
+              >Шрифты: подключение внешних и кастомных шрифтов</a
+            >
+          </li>
+          <li>
+            <a href="07-02-text-properties.html"
+              >Свойства текста (размер, жирность, цвет)</a
+            >
+          </li>
+          <li>
+            <a href="07-03-spacing.html"
+              >Межстрочный и межбуквенный интервалы</a
+            >
+          </li>
+          <li>
+            <a href="07-04-text-shadow-clipping.html"
+              >Текстовые тени, обрезка текста и перенос</a
+            >
+          </li>
+        </ol>
+
+        <li><a href="08-00-colors-gradients.html">Цвета и градиенты</a></li>
+        <ol>
+          <li>
+            <a href="08-01-color-formats.html">Форматы цвета: HEX, RGB, HSL</a>
+          </li>
+          <li>
+            <a href="08-02-transparency-alpha.html"
+              >Прозрачность и альфа-канал</a
+            >
+          </li>
+          <li><a href="08-03-gradients.html">Создание градиентов</a></li>
+          <li>
+            <a href="08-04-css-variables-themes.html"
+              >Работа с CSS-переменными для цветовых тем</a
+            >
+          </li>
+        </ol>
+
+        <li>
+          <a href="09-00-animations-transformations.html"
+            >Анимации и трансформации</a
+          >
+        </li>
+        <ol>
+          <li>
+            <a href="09-01-keyframe-animations.html"
+              >CSS-анимации: свойства animation и ключевые кадры</a
+            >
+          </li>
+          <li>
+            <a href="09-02-transitions-effects.html"
+              >Переходы и плавные эффекты</a
+            >
+          </li>
+          <li><a href="09-03-transformations.html">Трансформации</a></li>
+          <li>
+            <a href="09-04-animation-pseudo-classes.html"
+              >Анимации на основе псевдоклассов</a
+            >
+          </li>
+        </ol>
+
+        <li><a href="10-00-variables.html">Переменные</a></li>
+        <ol>
+          <li>
+            <a href="10-01-using-variables.html"
+              >Создание и использование переменных</a
+            >
+          </li>
+          <li>
+            <a href="10-02-local-global-variables.html"
+              >Локальные и глобальные переменные</a
+            >
+          </li>
+        </ol>
+
+        <li>
+          <a href="11-00-mediaqueries-responsive-design.html"
+            >Медиазапросы и адаптивный дизайн</a
+          >
+        </li>
+        <ol>
+          <li>
+            <a href="11-01-mediaqueries-basics.html">Основы медиазапросов</a>
+          </li>
+          <li>
+            <a href="11-02-responsive-units.html"
+              >Адаптивные единицы измерения</a
+            >
+          </li>
+          <li>
+            <a href="11-03-responsive-principles.html"
+              >Принципы адаптивного и отзывчивого дизайна</a
+            >
+          </li>
+        </ol>
+
+        <li><a href="12-00-css-rules.html">Правила в CSS</a></li>
+        <ol>
+          <li><a href="12-01-keyframes.html">@keyframes</a></li>
+          <li><a href="12-02-media.html">@media</a></li>
+          <li><a href="12-03-property.html">@property</a></li>
+          <li><a href="12-04-import.html">@import</a></li>
+          <li><a href="12-05-supports.html">@supports</a></li>
+          <li><a href="12-06-font-face.html">@font-face</a></li>
+        </ol>
+      </ol>
+    </div>
+
+    <div id="page-wrapper">
+      <header>
+        <div class="left-buttons">
+          <ul>
+            <li>O</li>
+          </ul>
+        </div>
+        <h1>The CSS Book</h1>
+        <div class="right-buttons">
+          <ul>
+            <li>
+              <img src="assets/icons/github-original.svg" alt="" />
+            </li>
+          </ul>
+        </div>
+      </header>
+      <div class="page">
+        <a id="prev">
+          <!-- <img src="./icons/left-arrow.svg" alt="" /> -->
+        </a>
+        <main>
+          <h1>The CSS Book</h1>
+          <p>by yaxxei</p>
+
+          <p>
+            Этот справочник представляет собой удобный инструмент для изучения и
+            быстрого поиска информации о CSS (Cascading Style Sheets). Он
+            содержит структурированное описание ключевых тем, начиная с основ и
+            заканчивая продвинутыми возможностями.
+          </p>
+
+          <div class="note">
+            <p>Данный справочник предполагает, что вы используете CSS3.</p>
+          </div>
+
+          <p>
+            Справочник подходит для новичков и опытных разработчиков,
+            стремящихся улучшить свои навыки работы с CSS.
+          </p>
+        </main>
+        <a id="next">
+          <!-- <img src="./icons/right-arrow.svg" alt="" /> -->
+        </a>
+      </div>
+    </div>
+  </body>
+</html>
