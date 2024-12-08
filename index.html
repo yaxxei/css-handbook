@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="assets/styles/index.css" />
+    <link rel="stylesheet" href="src/assets/styles/index.css" />
 
     <!-- FONTS -->
     <!-- OPEN SANS -->
@@ -250,7 +250,7 @@
         <div class="right-buttons">
           <ul>
             <li>
-              <img src="assets/icons/github-original.svg" alt="" />
+              <!-- <img src="assets/icons/github-original.svg" alt="" /> -->
             </li>
           </ul>
         </div>
@@ -260,24 +260,53 @@
           <!-- <img src="./icons/left-arrow.svg" alt="" /> -->
         </a>
         <main>
-          <h1>The CSS Book</h1>
-          <p>by yaxxei</p>
-
-          <p>
-            Этот справочник представляет собой удобный инструмент для изучения и
-            быстрого поиска информации о CSS (Cascading Style Sheets). Он
-            содержит структурированное описание ключевых тем, начиная с основ и
-            заканчивая продвинутыми возможностями.
-          </p>
-
-          <div class="note">
-            <p>Данный справочник предполагает, что вы используете CSS3.</p>
+          <div class="quiz">
+            <ol>
+              <li>
+                <div class="question-1">
+                  <p>Какой селектор имеет наивысший приоритет?</p>
+                  <div class="answer-1">
+                    <input type="radio" id="answer-1" name="answer" />
+                    <label for="answer-1">#</label>
+                  </div>
+                  <div class="answer-1">
+                    <input type="radio" id="answer-2" name="answer" />
+                    <label for="answer-2">.</label>
+                  </div>
+                  <div class="answer-1">
+                    <input type="radio" id="answer-3" name="answer" />
+                    <label for="answer-3">div</label>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="question-2">
+                  <p>Какой тег используется для подключения CSS в HTML?</p>
+                  <div class="answer-1">
+                    <input type="radio" id="answer-1" name="answer" />
+                    <label for="answer-1">connect</label>
+                  </div>
+                  <div class="answer-1">
+                    <input type="radio" id="answer-2" name="answer" />
+                    <label for="answer-2">script</label>
+                  </div>
+                  <div class="answer-1">
+                    <input type="radio" id="answer-3" name="answer" />
+                    <label for="answer-3">link</label>
+                  </div>
+                </div>
+              </li>
+            </ol>
+            <div class="buttons">
+              <div class="left">
+                <!-- <button>Назад</button> -->
+              </div>
+              <div class="right">
+                <!-- <button>Дальше</button> -->
+                <button>Завершить</button>
+              </div>
+            </div>
           </div>
-
-          <p>
-            Справочник подходит для новичков и опытных разработчиков,
-            стремящихся улучшить свои навыки работы с CSS.
-          </p>
         </main>
         <a id="next">
           <!-- <img src="./icons/right-arrow.svg" alt="" /> -->

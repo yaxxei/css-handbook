@@ -2,6 +2,7 @@
   "name": "the-css-handbook",
   "version": "1.0.0",
   "main": "build.js",
+  "type": "module",
   "scripts": {
     "build": "rimraf build && node build.js && prettier --write build"
   },
