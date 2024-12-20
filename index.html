@@ -260,52 +260,92 @@
           <!-- <img src="./icons/left-arrow.svg" alt="" /> -->
         </a>
         <main>
-          <div class="quiz">
+          <div id="quiz">
+            <a id="prev-question">
+              <svg
+                fill="#b7b9cc"
+                height="50px"
+                width="50px"
+                version="1.1"
+                id="Layer_1"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                viewBox="0 0 330 330"
+                xml:space="preserve"
+              >
+                <path
+                  id="XMLID_92_"
+                  d="M111.213,165.004L250.607,25.607c5.858-5.858,5.858-15.355,0-21.213c-5.858-5.858-15.355-5.858-21.213,0.001
+	l-150,150.004C76.58,157.211,75,161.026,75,165.004c0,3.979,1.581,7.794,4.394,10.607l150,149.996
+	C232.322,328.536,236.161,330,240,330s7.678-1.464,10.607-4.394c5.858-5.858,5.858-15.355,0-21.213L111.213,165.004z"
+                />
+              </svg>
+            </a>
             <ol>
-              <li>
-                <div class="question-1">
+              <li class="active">
+                <div class="question-1" style="--count: 1">
                   <p>Какой селектор имеет наивысший приоритет?</p>
-                  <div class="answer-1">
+                  <div class="answer">
                     <input type="radio" id="answer-1" name="answer" />
                     <label for="answer-1">#</label>
                   </div>
-                  <div class="answer-1">
+                  <div class="answer">
                     <input type="radio" id="answer-2" name="answer" />
                     <label for="answer-2">.</label>
                   </div>
-                  <div class="answer-1">
+                  <div class="answer">
                     <input type="radio" id="answer-3" name="answer" />
                     <label for="answer-3">div</label>
+                  </div>
+                  <div class="explanation">
+                    Селектор #(id) имеет наивысший приоритет
                   </div>
                 </div>
               </li>
               <li>
-                <div class="question-2">
+                <div class="question-2" style="--count: 2">
                   <p>Какой тег используется для подключения CSS в HTML?</p>
-                  <div class="answer-1">
+                  <div class="answer">
                     <input type="radio" id="answer-1" name="answer" />
                     <label for="answer-1">connect</label>
                   </div>
-                  <div class="answer-1">
+                  <div class="answer">
                     <input type="radio" id="answer-2" name="answer" />
                     <label for="answer-2">script</label>
                   </div>
-                  <div class="answer-1">
+                  <div class="answer">
                     <input type="radio" id="answer-3" name="answer" />
                     <label for="answer-3">link</label>
+                  </div>
+                  <div class="explanation">
+                    Для подключения файла со стилями используется тег link
                   </div>
                 </div>
               </li>
             </ol>
-            <div class="buttons">
-              <div class="left">
-                <!-- <button>Назад</button> -->
-              </div>
-              <div class="right">
-                <!-- <button>Дальше</button> -->
-                <button>Завершить</button>
-              </div>
-            </div>
+            <a id="next-question">
+              <svg
+                fill="#b7b9cc"
+                height="50px"
+                width="50px"
+                version="1.1"
+                id="Layer_1"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                viewBox="0 0 330 330"
+                xml:space="preserve"
+              >
+                <path
+                  id="XMLID_92_"
+                  transform="scale(-1, 1) translate(-330, 0)"
+                  d="M111.213,165.004L250.607,25.607c5.858-5.858,5.858-15.355,0-21.213c-5.858-5.858-15.355-5.858-21.213,0.001
+          l-150,150.004C76.58,157.211,75,161.026,75,165.004c0,3.979,1.581,7.794,4.394,10.607l150,149.996
+          C232.322,328.536,236.161,330,240,330s7.678-1.464,10.607-4.394c5.858-5.858,5.858-15.355,0-21.213L111.213,165.004z"
+                />
+              </svg>
+            </a>
+
+            <button id="finish">Завершить</button>
           </div>
         </main>
         <a id="next">
@@ -313,5 +353,57 @@
         </a>
       </div>
     </div>
+
+    <!-- HANDLING FINISHING BUTTON -->
+    <script>
+      window.addEventListener("DOMContentLoaded", () => {});
+    </script>
+
+    <!-- HANDLING PREVIOUS AND NEXT QUESTIONS BUTTONS -->
+    <script>
+      window.addEventListener("DOMContentLoaded", () => {
+        const prevQuestionButton = document.getElementById("prev-question");
+        const nextQuestionButton = document.getElementById("next-question");
+        const questions = Array.from(document.querySelectorAll("#quiz ol li"));
+        const finishButton = document.getElementById("finish");
+
+        let currentIndex = questions.findIndex((item) =>
+          item.classList.contains("active")
+        );
+
+        const updateQuestionState = (index) => {
+          console.log(index);
+          questions.forEach((question, i) => {
+            question.classList.toggle("active", i === index);
+          });
+
+          prevQuestionButton.style.visibility =
+            index === 0 ? "hidden" : "visible";
+          nextQuestionButton.style.visibility =
+            index === questions.length - 1 ? "hidden" : "visible";
+        };
+
+        const handlePrevQuestion = () => {
+          if (currentIndex > 0) {
+            currentIndex--;
+            updateQuestionState(currentIndex);
+          }
+        };
+
+        const handleNextQuestion = () => {
+          if (currentIndex < questions.length - 1) {
+            currentIndex++;
+            updateQuestionState(currentIndex);
+          }
+        };
+
+        // Обработчики событий для кнопок
+        prevQuestionButton.addEventListener("click", handlePrevQuestion);
+        nextQuestionButton.addEventListener("click", handleNextQuestion);
+
+        // Инициализация состояния
+        updateQuestionState(currentIndex);
+      });
+    </script>
   </body>
 </html>

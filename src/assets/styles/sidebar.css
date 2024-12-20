@@ -41,18 +41,24 @@
         content: counter(section) ". ";
         font-weight: 700;
       }
-    }
 
-    > ol {
-      counter-reset: subsection;
-      margin-left: 1rem;
+      > ol {
+        counter-reset: subsection;
+        margin-left: 1rem;
 
-      > li {
-        counter-increment: subsection;
+        > li {
+          counter-increment: subsection;
 
-        a::before {
-          content: counter(section) "." counter(subsection) ". ";
-          font-weight: 700;
+          a::before {
+            content: counter(section) "." counter(subsection) ". ";
+            font-weight: 700;
+          }
+
+          &.quiz-chapter {
+            a::before {
+              content: "";
+            }
+          }
         }
       }
     }

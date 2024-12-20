@@ -57,6 +57,18 @@ export function parseMarkdown(markdown) {
   });
 }
 
+export function generateQuizHtml(quiz) {
+  const question = quiz.question;
+  const answers = quiz.answers;
+  const explanation = quiz.explanation;
+
+  return `
+    <li>
+      
+    </li>
+  `;
+}
+
 // function generateQuizHTML(questions, quizId) {
 //   const questionHTML = questions
 //     .map((q, index) => {

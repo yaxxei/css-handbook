@@ -1,11 +1,11 @@
 import { readdirSync, writeFileSync } from "fs";
 import { join } from "path";
 import { renderHtml } from "./build-scripts/templateRenderer.js";
-import { paths } from "./config.js";
+import { config } from "./config.js";
 import { createBuildDir } from "./build-scripts/buildDirCreator.js";
 
-const contentDir = paths.contentDir;
-const buildDir = paths.buildDir;
+const contentDir = config.paths.contentDir;
+const buildDir = config.paths.buildDir;
 
 const files = readdirSync(contentDir);
 

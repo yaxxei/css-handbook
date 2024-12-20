@@ -1,26 +1,84 @@
-.quiz {
-  padding: 1rem;
+#quiz {
+  padding: 3rem 1rem;
   border: 1px solid #fff;
   width: var(--content-max-width);
+  display: flex;
+  justify-content: center;
+  position: relative;
 
-  &:has() {
+  a#prev-question,
+  a#next-question {
+    width: 50px;
+    text-decoration: none;
+    fill: var(--icon-color);
+    transition: 0.2s ease-in-out;
+    cursor: pointer;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    svg {
+      width: 20px;
+      fill: var(--icon-color);
+      transition: 0.2s ease-in-out;
+    }
+
+    &:hover {
+      background-color: var(--bg-hover-color);
+      svg {
+        fill: var(--fg-color);
+        text-decoration: underline;
+      }
+    }
   }
 
-  .buttons {
-    display: flex;
-    justify-content: space-between;
+  button#finish {
+    display: none;
+  }
 
-    button {
+  ol {
+    position: relative;
+    width: 700px;
+    padding-left: 0;
+    padding-left: 3rem;
+
+    > li {
+      display: none;
+
+      .answer {
+        padding-left: 2rem;
+      }
+
+      &.active {
+        display: block;
+      }
+    }
+
+    &:has(li.active:is(:last-child)) ~ button#finish {
+      display: block;
+      position: absolute;
+      bottom: 1rem;
+      right: 1rem;
       background-color: transparent;
       color: var(--fg-color);
       padding: 0.3rem 1rem;
       border: 1px solid var(--fg-color);
-      /* justify-self: end; */
+    }
+  }
+
+  &:not(.finished) {
+    .explanation {
+      display: none;
     }
   }
 
   &::before {
     content: "Quiz";
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
     font-weight: 600;
+    display: flex;
   }
 }

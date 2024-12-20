@@ -1,51 +1,70 @@
-import { paths, chapters, title } from "../config.js";
+import { config } from "../config.js";
 import { parseMarkdown } from "./parser.js";
 import { readFileSync } from "fs";
 import { join } from "path";
 
-const template = readFileSync(paths.templatePath, "utf-8");
+const template = readFileSync(config.paths.templatePath, "utf-8");
 
 export function renderHtml(file) {
-  const filePath = join(paths.contentDir, file);
+  const filePath = join(config.paths.contentDir, file);
   const markdown = readFileSync(filePath, "utf-8") + "\n";
 
-  const outputFilename = file.replace(".md", ".html");
   const htmlContent = parseMarkdown(markdown);
-  const pageChapter = markdown.split("\n")[0].replace("##", "").trim();
-  const htmlChapters = getChaptersHtml(chapters);
+  const pageHeading = markdown.split("\n")[0];
+  const pageChapter = pageHeading.replace(/^(#|##) /, "").trim();
 
-  return (
-    template
-      .replace("{{content}}", htmlContent)
-      .replace("{{title}}", title)
-      .replace("{{chapter}}", pageChapter)
-      .replace("{{chapters}}", htmlChapters)
-      // highlighiting(adding active class) current page chapter in list
-      .replace(
-        new RegExp(`<li(?:\\s[^>]*)?>\\s*<a\\s+href="${outputFilename}"`, "g"),
-        `<li class="active"><a href="${outputFilename}"`
-      )
-  );
+  const htmlChapters = getChaptersHtml(config.chapters);
+
+  return template
+    .replace("{{content}}", htmlContent)
+    .replace("{{title}}", config.title)
+    .replace("{{chapter}}", pageChapter)
+    .replace("{{chapters}}", htmlChapters);
+}
+
+export function renderQuizzesHtml() {
+  const filePath = join(config.paths.contentDir, file);
+  const markdown = readFileSync(filePath, "utf-8") + "\n";
+
+  const htmlContent = parseMarkdown(markdown);
+  const pageHeading = markdown.split("\n")[0];
+  const pageChapter = pageHeading.replace(/^(#|##) /, "").trim();
+
+  const htmlChapters = getChaptersHtml(config.chapters);
+
+  return template
+    .replace("{{content}}", htmlContent)
+    .replace("{{title}}", config.title)
+    .replace("{{chapter}}", pageChapter)
+    .replace("{{chapters}}", htmlChapters);
 }
 
 function getChaptersHtml(chapters) {
   const createList = (chapterObj, isOrdered) => {
     const items = Object.entries(chapterObj).map(([id, value]) => {
+      let subItems = "";
+
+      // Если есть подразделы, создаем вложенный список
       if (typeof value === "object" && value.children) {
-        return `
-          <li>
-            <a href="${id}.html">${value.name}</a>
-          </li>
-          <ol>
-            ${createList(value.children, true)}
-          </ol>
-        `;
+        subItems = createList(value.children, true);
       }
-      return `
+
+      config.quizzes[id]
+        ? (subItems = subItems.replace(
+            "</ol>",
+            `<li class="quiz-chapter"><a href="${id.split("-")[0]}-quiz.html">Контрольные вопросы</a></li></ol>`
+          ))
+        : "";
+
+      // Добавляем основной элемент раздела
+      const sectionHtml = `
         <li>
-          <a href="${id}.html">${value}</a>
+          <a href="${id}.html">${value.name || value}</a>
+          ${subItems}
         </li>
       `;
+
+      return sectionHtml;
     });
 
     const listTag = isOrdered ? "ol" : "ul";
@@ -63,7 +82,6 @@ function getChaptersHtml(chapters) {
     }
   });
 
-  // Генерируем списки
   const unorderedHtml = createList(unorderedChapters, false);
   const orderedHtml = createList(orderedChapters, true);
 
