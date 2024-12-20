@@ -809,7 +809,7 @@ const quizData = {
 export const config = {
   paths: {
     srcDir: join(rootDir, "src"),
-    templatePath: join(rootDir, "src/templates/layout2.html"),
+    templatePath: join(rootDir, "src/templates/layout.html"),
     stylesSrcDir: join(rootDir, "src/assets/styles"),
     contentDir: join(rootDir, "src/contents-simple"),
     buildDir: join(rootDir, "build"),

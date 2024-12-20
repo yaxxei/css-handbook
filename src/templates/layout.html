@@ -22,155 +22,11 @@
     <!-- PRISM LIB -->
     <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.js"></script>
 
-    <title>{{title}} - The CSS Book</title>
+    <title>{{chapter}} - {{title}}</title>
   </head>
 
   <body>
-    <div id="sidebar">
-      <ul>
-        <li>
-          <a href="00-00-about-the-book.html">О справочнике</a>
-        </li>
-        <li><a href="00-01-introduction.html">Введение</a></li>
-      </ul>
-      <ol>
-        <li><a href="01-00-getting-started.html">Начало</a></li>
-        <ol>
-          <li>
-            <a href="01-01-ways-to-add-css.html">Способы подключения CSS</a>
-          </li>
-          <li>
-            <a href="01-02-linking-multiple-stylesheets.html"
-              >Подключение нескольких файлов стилей</a
-            >
-          </li>
-        </ol>
-
-        <li><a href="02-00-css-basics.html">Основы CSS</a></li>
-        <ol>
-          <li><a href="02-01-css-syntax.html">Синтаксис CSS</a></li>
-          <li><a href="02-02-selectors.html">Селекторы</a></li>
-          <li>
-            <a href="02-03-properties-and-values.html">Свойства и значения</a>
-          </li>
-          <li>
-            <a href="02-04-priority-and-overrides.html"
-              >Приоритетность и переопределение стилей</a
-            >
-          </li>
-        </ol>
-
-        <li>
-          <a href="03-00-text-and-fonts.html">Работа с текстом и шрифтами</a>
-        </li>
-        <ol>
-          <li>
-            <a href="03-01-text-formatting.html">Форматирование текста</a>
-          </li>
-          <li><a href="03-02-text-alignment.html">Выравнивание текста</a></li>
-          <li><a href="03-03-fonts.html">Шрифты</a></li>
-        </ol>
-
-        <li><a href="04-00-block-styling.html">Оформление блоков</a></li>
-        <ol>
-          <li><a href="04-01-box-model.html">Модель коробки (Box Model)</a></li>
-          <li><a href="04-02-block-sizing.html">Размеры блоков</a></li>
-          <li><a href="04-03-backgrounds.html">Фоны</a></li>
-        </ol>
-
-        <li>
-          <a href="05-00-element-layout.html">Расположение элементов</a>
-        </li>
-        <ol>
-          <li>
-            <a href="05-01-document-flow.html">Поток документа (Normal Flow)</a>
-          </li>
-          <li><a href="05-02-positioning.html">Позиционирование</a></li>
-          <li><a href="05-03-flexbox.html">Flexbox</a></li>
-          <li><a href="05-04-css-grid.html">CSS Grid</a></li>
-        </ol>
-
-        <li>
-          <a href="06-00-animations-and-transformations.html"
-            >Анимации и трансформации</a
-          >
-        </li>
-        <ol>
-          <li><a href="06-01-transitions.html">Переходы (Transitions)</a></li>
-          <li><a href="06-02-animations.html">Анимации (Animations)</a></li>
-          <li>
-            <a href="06-03-transformations.html"
-              >Трансформации (Transformations)</a
-            >
-          </li>
-        </ol>
-
-        <li><a href="07-00-css-variables.html">Переменные в CSS</a></li>
-        <ol>
-          <li>
-            <a href="07-01-introduction-to-css-variables.html"
-              >Основы CSS-переменных</a
-            >
-          </li>
-          <li>
-            <a href="07-02-using-variables.html">Использование переменных</a>
-          </li>
-        </ol>
-
-        <li><a href="08-00-css-rules.html">Правила CSS</a></li>
-        <ol>
-          <li><a href="08-01-media-queries.html">Медиа-запросы (@media)</a></li>
-          <li><a href="08-02-other-rules.html">Другие правила CSS</a></li>
-        </ol>
-
-        <li><a href="09-00-responsive-design.html">Адаптивный дизайн</a></li>
-        <ol>
-          <li>
-            <a href="09-01-approaches-to-responsive-design.html"
-              >Подходы к адаптивному дизайну</a
-            >
-          </li>
-          <li>
-            <a href="09-02-media-queries-and-responsive-styles.html"
-              >Медиа-запросы и адаптивные стили</a
-            >
-          </li>
-          <li>
-            <a href="09-03-responsive-units.html"
-              >Адаптивные единицы измерения</a
-            >
-          </li>
-          <li>
-            <a href="09-04-responsive-images.html">Адаптивные изображения</a>
-          </li>
-        </ol>
-
-        <li><a href="10-00-conclusion.html">Заключение</a></li>
-
-        <li>
-          <a href="11-00-practical-applications.html"
-            >Практическое применение</a
-          >
-        </li>
-        <ol>
-          <li>
-            <a href="11-01-creating-basic-site-style.html"
-              >Создание базового стиля сайта</a
-            >
-          </li>
-          <li>
-            <a href="11-02-css-optimization.html"
-              >Оптимизация CSS для производительности</a
-            >
-          </li>
-          <li>
-            <a href="11-03-css-tips-and-tricks.html"
-              >Советы и трюки для работы с CSS</a
-            >
-          </li>
-        </ol>
-      </ol>
-    </div>
+    <div id="sidebar">{{chapters}}</div>
 
     <div id="page-wrapper">
       <header>
@@ -202,7 +58,7 @@
             </li>
           </ul>
         </div>
-        <h1>The CSS Book</h1>
+        <h1>The CSS Handbook</h1>
         <div class="right-buttons">
           <ul>
             <li>
@@ -332,25 +188,25 @@
       </div>
     </div>
 
-    <!-- <script>
+    <!-- HIGHLITING CURRENT PAGE CHAPTER IN SIDEBAR -->
+    <script>
       window.addEventListener("DOMContentLoaded", () => {
-        const quizBlocks = document.querySelectorAll(".quiz");
-        quizBlocks.forEach((block) => {
-          const startButton = document.createElement("button");
-          startButton.innerText = "Copy code";
-          startButton.classList.add("Start");
-          startButton.addEventListener("click", () => {
-            // todo start quiz
-          });
-          block.after(startButton);
-        });
+        const fullPath = window.location.pathname;
+        const fileNameWithExtension = fullPath.substring(
+          fullPath.lastIndexOf("/") + 1
+        );
+        const activeLink = document.querySelector(
+          `#sidebar a[href="${fileNameWithExtension}"]`
+        );
+        activeLink?.closest("li").classList.add("active");
       });
-    </script> -->
+    </script>
 
+    <!-- ADDING BUTTON TO COPY CODE -->
     <script>
       window.addEventListener("DOMContentLoaded", () => {
         const codeBlocks = document.querySelectorAll(
-          "pre[class*='language'] > code",
+          "pre[class*='language'] > code"
         );
         codeBlocks.forEach((block) => {
           const copyText = document.createElement("button");
@@ -376,10 +232,11 @@
       });
     </script>
 
+    <!-- TOGGLING SIDEBAR -->
     <script>
       window.addEventListener("DOMContentLoaded", () => {
         const toggleSdidebarIcon = document.getElementById(
-          "toggle-sdidebar-icon",
+          "toggle-sdidebar-icon"
         );
         const sidebar = document.getElementById("sidebar");
         const pageWrapper = document.getElementById("page-wrapper");
@@ -406,6 +263,7 @@
       });
     </script>
 
+    <!-- HANDLING PREVIOUS AND NEXT PAGE BUTTONS -->
     <script>
       window.addEventListener("DOMContentLoaded", () => {
         const prevPageButton = document.getElementById("prev");
@@ -415,20 +273,36 @@
         const links = Array.from(document.querySelectorAll("#sidebar li a"));
 
         const currentIndex = links.findIndex(
-          (link) => link.href === currentLink.href,
+          (link) => link.href === currentLink?.href
         );
 
-        prevPageButton.addEventListener("click", () => {
-          if (currentIndex > 0) {
-            const prevLink = links[currentIndex - 1].href;
+        const handlePrevPage = (index) => {
+          if (index > 0) {
+            const prevLink = links[index - 1].href;
             location.href = prevLink;
           }
+        };
+
+        const handleNextPage = (index) => {
+          if (index < links.length - 1) {
+            const nextLink = links[index + 1].href;
+            location.href = nextLink;
+          }
+        };
+
+        prevPageButton.addEventListener("click", () => {
+          handlePrevPage(currentIndex);
         });
 
         nextPageButton.addEventListener("click", () => {
-          if (currentIndex < links.length - 1) {
-            const nextLink = links[currentIndex + 1].href;
-            location.href = nextLink;
+          handleNextPage(currentIndex);
+        });
+
+        window.addEventListener("keydown", (event) => {
+          if (event.key === "ArrowLeft") {
+            handlePrevPage(currentIndex);
+          } else if (event.key === "ArrowRight") {
+            handleNextPage(currentIndex);
           }
         });
 
