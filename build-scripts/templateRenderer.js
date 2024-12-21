@@ -22,23 +22,6 @@ export function renderHtml(file) {
     .replace("{{chapters}}", htmlChapters);
 }
 
-export function renderQuizzesHtml() {
-  const filePath = join(config.paths.contentDir, file);
-  const markdown = readFileSync(filePath, "utf-8") + "\n";
-
-  const htmlContent = parseMarkdown(markdown);
-  const pageHeading = markdown.split("\n")[0];
-  const pageChapter = pageHeading.replace(/^(#|##) /, "").trim();
-
-  const htmlChapters = getChaptersHtml(config.chapters);
-
-  return template
-    .replace("{{content}}", htmlContent)
-    .replace("{{title}}", config.title)
-    .replace("{{chapter}}", pageChapter)
-    .replace("{{chapters}}", htmlChapters);
-}
-
 function getChaptersHtml(chapters) {
   const createList = (chapterObj, isOrdered) => {
     const items = Object.entries(chapterObj).map(([id, value]) => {
@@ -49,12 +32,12 @@ function getChaptersHtml(chapters) {
         subItems = createList(value.children, true);
       }
 
-      config.quizzes[id]
-        ? (subItems = subItems.replace(
-            "</ol>",
-            `<li class="quiz-chapter"><a href="${id.split("-")[0]}-quiz.html">Контрольные вопросы</a></li></ol>`
-          ))
-        : "";
+      if (value.quiz) {
+        subItems = subItems.replace(
+          "</ol>",
+          `<li class="quiz-chapter"><a href="${value.quiz}.html">Контрольные вопросы</a></li></ol>`
+        );
+      }
 
       // Добавляем основной элемент раздела
       const sectionHtml = `

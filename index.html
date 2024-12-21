@@ -1,409 +1,462 @@
 <!doctype html>
 <html lang="ru">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="src/assets/styles/index.css" />
 
-    <!-- FONTS -->
-    <!-- OPEN SANS -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800"
-      rel="stylesheet"
-    />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="build/assets/styles/index.css" />
 
-    <!-- PRISM STYLES -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.css"
-      rel="stylesheet"
-    />
-    <!-- PRISM LIB -->
-    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.js"></script>
+  <!-- FONTS -->
+  <!-- OPEN SANS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800" rel="stylesheet" />
 
-    <title>The CSS Handbook</title>
-  </head>
+  <!-- PRISM STYLES -->
+  <link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.css" rel="stylesheet" />
+  <!-- PRISM LIB -->
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.js"></script>
 
-  <body>
-    <div id="sidebar">
-      <ul>
-        <li><a href="00-00-about-book.html">Справочник по CSS</a></li>
-        <li><a href="00-01-intro.html">Введение</a></li>
-      </ul>
-      <ol>
-        <li><a href="01-00-getting-started.html">Начало</a></li>
+  <title>О справочнике - The CSS Handbook</title>
+</head>
+
+<body>
+  <div id="sidebar">
+    <ul>
+      <li class="active">
+        <a href="build/00-00-about-the-handbook.html">О справочнике</a>
+      </li>
+      <li>
+        <a href="build/00-01-introduction.html">Введение</a>
+      </li>
+    </ul>
+    <ol>
+      <li>
+        <a href="build/01-00-getting-started.html">Начало</a>
         <ol>
           <li>
-            <a href="01-01-css-connection.html">Подключение CSS к HTML</a>
+            <a href="build/01-01-ways-to-add-css.html">Способы подключения CSS</a>
           </li>
+          <li>
+            <a href="build/01-02-linking-multiple-stylesheets.html">Подключение нескольких файлов стилей</a>
+          </li>
+          <li class="quiz-chapter"><a href="build/01-quiz.html">Контрольные вопросы</a></li>
         </ol>
-
-        <li>
-          <a href="02-00-syntax-and-structure.html">Синтаксис и структура</a>
-        </li>
+      </li>
+      <li>
+        <a href="build/02-00-css-basics.html">Основы CSS</a>
         <ol>
           <li>
-            <a href="02-01-selector-property-value.html"
-              >Селектор, свойство, значение</a
-            >
+            <a href="build/02-01-css-syntax.html">Синтаксис CSS</a>
           </li>
-          <li><a href="02-02-priority.html">Приоритетность</a></li>
-          <li><a href="02-03-important.html">!important</a></li>
+          <li>
+            <a href="build/02-02-selectors.html">Селекторы</a>
+          </li>
+          <li>
+            <a href="build/02-03-properties-and-values.html">Свойства и значения</a>
+          </li>
+          <li>
+            <a href="build/02-04-priority-and-overrides.html">Приоритетность и переопределение стилей</a>
+          </li>
+          <li class="quiz-chapter"><a href="build/02-quiz.html">Контрольные вопросы</a></li>
         </ol>
-
-        <li>
-          <a href="03-00-advanced-selectors.html">Продвинутые селекторы</a>
-        </li>
+      </li>
+      <li>
+        <a href="build/03-00-text-and-fonts.html">Работа с текстом и шрифтами</a>
         <ol>
           <li>
-            <a href="03-01-group-adjacent-child.html"
-              >Групповые, соседние, дочерние</a
-            >
+            <a href="build/03-01-text-formatting.html">Форматирование текста</a>
           </li>
           <li>
-            <a href="03-02-attribute-selectors.html">Атрибутные селекторы</a>
+            <a href="build/03-02-linking-fonts.html">Подключение шрифтов</a>
           </li>
-          <li>
-            <a href="03-03-universal-selector.html">Универсальный селектор</a>
-          </li>
+          <li class="quiz-chapter"><a href="build/03-quiz.html">Контрольные вопросы</a></li>
         </ol>
-
-        <li>
-          <a href="04-00-pseudo-classes-elements.html"
-            >Псевдоклассы и псевдоэлементы</a
-          >
-        </li>
+      </li>
+      <li>
+        <a href="build/04-00-block-styling.html">Оформление блоков</a>
         <ol>
           <li>
-            <a href="04-01-pseudo-classes.html"
-              >Псевдоклассы (:hover, :focus, :nth-child и т.д.)</a
-            >
+            <a href="build/04-01-box-model.html">Box Model</a>
           </li>
           <li>
-            <a href="04-02-pseudo-elements.html"
-              >Псевдоэлементы (::before, ::after)</a
-            >
+            <a href="build/04-02-basic-flexbox.html">Основы Flexbox</a>
           </li>
           <li>
-            <a href="04-03-interactive-styling.html"
-              >Стилизация интерактивных элементов</a
-            >
+            <a href="build/04-03-basic-grid.html">Основы Grid</a>
           </li>
+          <li class="quiz-chapter"><a href="build/04-quiz.html">Контрольные вопросы</a></li>
         </ol>
-
-        <li><a href="05-00-box-model.html">Блочная модель</a></li>
+      </li>
+      <li>
+        <a href="build/05-00-responsive-design.html">Адаптивный дизайн</a>
         <ol>
           <li>
-            <a href="05-01-box-model-types.html"
-              >Понятия "Блочная модель" и "Типы отображения"</a
-            >
+            <a href="build/05-01-media-queries.html">медиа-запросы</a>
           </li>
           <li>
-            <a href="05-02-margin-padding-border.html"
-              >Параметры margin, padding, border</a
-            >
+            <a href="build/05-02-dynamic-units.html">Динамические единицы</a>
           </li>
-          <li>
-            <a href="05-03-box-sizing-overflow.html"
-              >Свойства box-sizing, overflow</a
-            >
-          </li>
+          <li class="quiz-chapter"><a href="build/05-quiz.html">Контрольные вопросы</a></li>
         </ol>
+      </li>
+    </ol>
+  </div>
 
-        <li>
-          <a href="06-00-layout-alignment.html">Раскладка и выравнивание</a>
-        </li>
-        <ol>
-          <li><a href="06-01-flexbox.html">Flexbox</a></li>
-          <li><a href="06-02-grid-layout.html">Grid Layout</a></li>
+  <div id="page-wrapper">
+    <header>
+      <div class="left-buttons">
+        <ul>
           <li>
-            <a href="06-03-positioning.html">Позиционирование элементов</a>
-          </li>
-        </ol>
-
-        <li>
-          <a href="07-00-typography-text.html"
-            >Типографика и работа с текстом</a
-          >
-        </li>
-        <ol>
-          <li>
-            <a href="07-01-fonts.html"
-              >Шрифты: подключение внешних и кастомных шрифтов</a
-            >
-          </li>
-          <li>
-            <a href="07-02-text-properties.html"
-              >Свойства текста (размер, жирность, цвет)</a
-            >
-          </li>
-          <li>
-            <a href="07-03-spacing.html"
-              >Межстрочный и межбуквенный интервалы</a
-            >
-          </li>
-          <li>
-            <a href="07-04-text-shadow-clipping.html"
-              >Текстовые тени, обрезка текста и перенос</a
-            >
-          </li>
-        </ol>
-
-        <li><a href="08-00-colors-gradients.html">Цвета и градиенты</a></li>
-        <ol>
-          <li>
-            <a href="08-01-color-formats.html">Форматы цвета: HEX, RGB, HSL</a>
-          </li>
-          <li>
-            <a href="08-02-transparency-alpha.html"
-              >Прозрачность и альфа-канал</a
-            >
-          </li>
-          <li><a href="08-03-gradients.html">Создание градиентов</a></li>
-          <li>
-            <a href="08-04-css-variables-themes.html"
-              >Работа с CSS-переменными для цветовых тем</a
-            >
-          </li>
-        </ol>
-
-        <li>
-          <a href="09-00-animations-transformations.html"
-            >Анимации и трансформации</a
-          >
-        </li>
-        <ol>
-          <li>
-            <a href="09-01-keyframe-animations.html"
-              >CSS-анимации: свойства animation и ключевые кадры</a
-            >
-          </li>
-          <li>
-            <a href="09-02-transitions-effects.html"
-              >Переходы и плавные эффекты</a
-            >
-          </li>
-          <li><a href="09-03-transformations.html">Трансформации</a></li>
-          <li>
-            <a href="09-04-animation-pseudo-classes.html"
-              >Анимации на основе псевдоклассов</a
-            >
-          </li>
-        </ol>
-
-        <li><a href="10-00-variables.html">Переменные</a></li>
-        <ol>
-          <li>
-            <a href="10-01-using-variables.html"
-              >Создание и использование переменных</a
-            >
-          </li>
-          <li>
-            <a href="10-02-local-global-variables.html"
-              >Локальные и глобальные переменные</a
-            >
-          </li>
-        </ol>
-
-        <li>
-          <a href="11-00-mediaqueries-responsive-design.html"
-            >Медиазапросы и адаптивный дизайн</a
-          >
-        </li>
-        <ol>
-          <li>
-            <a href="11-01-mediaqueries-basics.html">Основы медиазапросов</a>
-          </li>
-          <li>
-            <a href="11-02-responsive-units.html"
-              >Адаптивные единицы измерения</a
-            >
-          </li>
-          <li>
-            <a href="11-03-responsive-principles.html"
-              >Принципы адаптивного и отзывчивого дизайна</a
-            >
-          </li>
-        </ol>
-
-        <li><a href="12-00-css-rules.html">Правила в CSS</a></li>
-        <ol>
-          <li><a href="12-01-keyframes.html">@keyframes</a></li>
-          <li><a href="12-02-media.html">@media</a></li>
-          <li><a href="12-03-property.html">@property</a></li>
-          <li><a href="12-04-import.html">@import</a></li>
-          <li><a href="12-05-supports.html">@supports</a></li>
-          <li><a href="12-06-font-face.html">@font-face</a></li>
-        </ol>
-      </ol>
-    </div>
-
-    <div id="page-wrapper">
-      <header>
-        <div class="left-buttons">
-          <ul>
-            <li>O</li>
-          </ul>
-        </div>
-        <h1>The CSS Book</h1>
-        <div class="right-buttons">
-          <ul>
-            <li>
-              <!-- <img src="assets/icons/github-original.svg" alt="" /> -->
-            </li>
-          </ul>
-        </div>
-      </header>
-      <div class="page">
-        <a id="prev">
-          <!-- <img src="./icons/left-arrow.svg" alt="" /> -->
-        </a>
-        <main>
-          <div id="quiz">
-            <a id="prev-question">
-              <svg
-                fill="#b7b9cc"
-                height="50px"
-                width="50px"
-                version="1.1"
-                id="Layer_1"
-                xmlns="http://www.w3.org/2000/svg"
-                xmlns:xlink="http://www.w3.org/1999/xlink"
-                viewBox="0 0 330 330"
-                xml:space="preserve"
-              >
-                <path
-                  id="XMLID_92_"
-                  d="M111.213,165.004L250.607,25.607c5.858-5.858,5.858-15.355,0-21.213c-5.858-5.858-15.355-5.858-21.213,0.001
-	l-150,150.004C76.58,157.211,75,161.026,75,165.004c0,3.979,1.581,7.794,4.394,10.607l150,149.996
-	C232.322,328.536,236.161,330,240,330s7.678-1.464,10.607-4.394c5.858-5.858,5.858-15.355,0-21.213L111.213,165.004z"
-                />
+            <button id="toggle-sdidebar-icon">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M4 18L20 18" stroke="#000000" stroke-width="2" stroke-linecap="round" />
+                <path d="M4 12L20 12" stroke="#000000" stroke-width="2" stroke-linecap="round" />
+                <path d="M4 6L20 6" stroke="#000000" stroke-width="2" stroke-linecap="round" />
               </svg>
-            </a>
-            <ol>
-              <li class="active">
-                <div class="question-1" style="--count: 1">
-                  <p>Какой селектор имеет наивысший приоритет?</p>
-                  <div class="answer">
-                    <input type="radio" id="answer-1" name="answer" />
-                    <label for="answer-1">#</label>
-                  </div>
-                  <div class="answer">
-                    <input type="radio" id="answer-2" name="answer" />
-                    <label for="answer-2">.</label>
-                  </div>
-                  <div class="answer">
-                    <input type="radio" id="answer-3" name="answer" />
-                    <label for="answer-3">div</label>
-                  </div>
-                  <div class="explanation">
-                    Селектор #(id) имеет наивысший приоритет
-                  </div>
-                </div>
-              </li>
-              <li>
-                <div class="question-2" style="--count: 2">
-                  <p>Какой тег используется для подключения CSS в HTML?</p>
-                  <div class="answer">
-                    <input type="radio" id="answer-1" name="answer" />
-                    <label for="answer-1">connect</label>
-                  </div>
-                  <div class="answer">
-                    <input type="radio" id="answer-2" name="answer" />
-                    <label for="answer-2">script</label>
-                  </div>
-                  <div class="answer">
-                    <input type="radio" id="answer-3" name="answer" />
-                    <label for="answer-3">link</label>
-                  </div>
-                  <div class="explanation">
-                    Для подключения файла со стилями используется тег link
-                  </div>
-                </div>
-              </li>
-            </ol>
-            <a id="next-question">
-              <svg
-                fill="#b7b9cc"
-                height="50px"
-                width="50px"
-                version="1.1"
-                id="Layer_1"
-                xmlns="http://www.w3.org/2000/svg"
-                xmlns:xlink="http://www.w3.org/1999/xlink"
-                viewBox="0 0 330 330"
-                xml:space="preserve"
-              >
-                <path
-                  id="XMLID_92_"
-                  transform="scale(-1, 1) translate(-330, 0)"
-                  d="M111.213,165.004L250.607,25.607c5.858-5.858,5.858-15.355,0-21.213c-5.858-5.858-15.355-5.858-21.213,0.001
-          l-150,150.004C76.58,157.211,75,161.026,75,165.004c0,3.979,1.581,7.794,4.394,10.607l150,149.996
-          C232.322,328.536,236.161,330,240,330s7.678-1.464,10.607-4.394c5.858-5.858,5.858-15.355,0-21.213L111.213,165.004z"
-                />
-              </svg>
-            </a>
-
-            <button id="finish">Завершить</button>
-          </div>
-        </main>
-        <a id="next">
-          <!-- <img src="./icons/right-arrow.svg" alt="" /> -->
-        </a>
+            </button>
+          </li>
+        </ul>
       </div>
+      <h1>The CSS Handbook</h1>
+      <div class="right-buttons">
+        <ul>
+          <li>
+            <button>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+                <g fill="#b7b9cc">
+                  <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M64 5.103c-33.347 0-60.388 27.035-60.388 60.388 0 26.682 17.303 49.317 41.297 57.303 3.017.56 4.125-1.31 4.125-2.905 0-1.44-.056-6.197-.082-11.243-16.8 3.653-20.345-7.125-20.345-7.125-2.747-6.98-6.705-8.836-6.705-8.836-5.48-3.748.413-3.67.413-3.67 6.063.425 9.257 6.223 9.257 6.223 5.386 9.23 14.127 6.562 17.573 5.02.542-3.903 2.107-6.568 3.834-8.076-13.413-1.525-27.514-6.704-27.514-29.843 0-6.593 2.36-11.98 6.223-16.21-.628-1.52-2.695-7.662.584-15.98 0 0 5.07-1.623 16.61 6.19C53.7 35 58.867 34.327 64 34.304c5.13.023 10.3.694 15.127 2.033 11.526-7.813 16.59-6.19 16.59-6.19 3.287 8.317 1.22 14.46.593 15.98 3.872 4.23 6.215 9.617 6.215 16.21 0 23.194-14.127 28.3-27.574 29.796 2.167 1.874 4.097 5.55 4.097 11.183 0 8.08-.07 14.583-.07 16.572 0 1.607 1.088 3.49 4.148 2.897 23.98-7.994 41.263-30.622 41.263-57.294C124.388 32.14 97.35 5.104 64 5.104z" />
+                  <path
+                    d="M26.484 91.806c-.133.3-.605.39-1.035.185-.44-.196-.685-.605-.543-.906.13-.31.603-.395 1.04-.188.44.197.69.61.537.91zm2.446 2.729c-.287.267-.85.143-1.232-.28-.396-.42-.47-.983-.177-1.254.298-.266.844-.14 1.24.28.394.426.472.984.17 1.255zM31.312 98.012c-.37.258-.976.017-1.35-.52-.37-.538-.37-1.183.01-1.44.373-.258.97-.025 1.35.507.368.545.368 1.19-.01 1.452zm3.261 3.361c-.33.365-1.036.267-1.552-.23-.527-.487-.674-1.18-.343-1.544.336-.366 1.045-.264 1.564.23.527.486.686 1.18.333 1.543zm4.5 1.951c-.147.473-.825.688-1.51.486-.683-.207-1.13-.76-.99-1.238.14-.477.823-.7 1.512-.485.683.206 1.13.756.988 1.237zm4.943.361c.017.498-.563.91-1.28.92-.723.017-1.308-.387-1.315-.877 0-.503.568-.91 1.29-.924.717-.013 1.306.387 1.306.88zm4.598-.782c.086.485-.413.984-1.126 1.117-.7.13-1.35-.172-1.44-.653-.086-.498.422-.997 1.122-1.126.714-.123 1.354.17 1.444.663zm0 0" />
+                </g>
+              </svg>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </header>
+    <div class="page">
+      <a id="prev">
+        <svg fill="#b7b9cc" height="50px" width="50px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 330 330" xml:space="preserve">
+          <path id="XMLID_92_" d="M111.213,165.004L250.607,25.607c5.858-5.858,5.858-15.355,0-21.213c-5.858-5.858-15.355-5.858-21.213,0.001
+	l-150,150.004C76.58,157.211,75,161.026,75,165.004c0,3.979,1.581,7.794,4.394,10.607l150,149.996
+	C232.322,328.536,236.161,330,240,330s7.678-1.464,10.607-4.394c5.858-5.858,5.858-15.355,0-21.213L111.213,165.004z" />
+        </svg>
+      </a>
+      <main>
+        <h2>О справочнике</h2>
+        <p><em>by yaxxei</em></p>
+        <p>Этот справочник предназначен для всех, кто хочет изучить CSS — язык, отвечающий за стилизацию веб-страниц. В
+          нем собраны основные концепции, правила и приемы, которые помогут вам создавать привлекательные и
+          функциональные интерфейсы.</p>
+        <p>Цель справочника — стать универсальным источником знаний, который можно использовать как начинающим
+          разработчикам, так и тем, кто хочет освежить свои навыки.</p>
+
+        <div class="note">
+          <p>
+          <p>Справочник подходит как для тех, кто только начинает осваивать CSS, так и для опытных специалистов,
+            нуждающихся в справочном материале.</p>
+          </p>
+        </div>
+        <p>Вы узнаете:</p>
+        <ul>
+          <li>Как подключать CSS к проекту.</li>
+          <li>Как использовать свойства для стилизации текста, блоков и других элементов.</li>
+          <li>Как создавать адаптивные дизайны и анимации.</li>
+          <li>Как использовать переменные и ключевые правила CSS.</li>
+        </ul>
+        <p>Также вы найдете полезные примеры, советы и предупреждения, которые помогут избежать распространенных ошибок.
+        </p>
+        <p>Рекомендации по использованию справочника:</p>
+        <ol>
+          <li>Начинайте с введения, если вы впервые работаете с CSS.</li>
+          <li>Используйте содержание для быстрого поиска нужной темы.</li>
+          <li>Пробуйте примеры кода, чтобы закрепить теоретические знания на практике.</li>
+        </ol>
+
+
+        <div id="clipboard-copy-toast">
+          <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="256"
+            height="256" viewBox="0 0 256 256" xml:space="preserve">
+            <g style="
+                  stroke: none;
+                  stroke-width: 0;
+                  stroke-dasharray: none;
+                  stroke-linecap: butt;
+                  stroke-linejoin: miter;
+                  stroke-miterlimit: 10;
+                  fill: none;
+                  fill-rule: nonzero;
+                  opacity: 1;
+                " transform="translate(1.4065934065934016 1.4065934065934016) scale(2.81 2.81)">
+              <path
+                d="M 45 90 C 20.187 90 0 69.813 0 45 C 0 20.187 20.187 0 45 0 c 24.813 0 45 20.187 45 45 C 90 69.813 69.813 90 45 90 z"
+                style="
+                    stroke: none;
+                    stroke-width: 1;
+                    stroke-dasharray: none;
+                    stroke-linecap: butt;
+                    stroke-linejoin: miter;
+                    stroke-miterlimit: 10;
+                    fill: rgb(0, 186, 119);
+                    fill-rule: nonzero;
+                    opacity: 1;
+                  " transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
+              <polygon points="35.86,69.67 17.5,51.31 26.66,42.15 35.86,51.34 63.34,23.87 72.5,33.03 " style="
+                    stroke: none;
+                    stroke-width: 1;
+                    stroke-dasharray: none;
+                    stroke-linecap: butt;
+                    stroke-linejoin: miter;
+                    stroke-miterlimit: 10;
+                    fill: rgb(255, 255, 255);
+                    fill-rule: nonzero;
+                    opacity: 1;
+                  " transform="  matrix(1 0 0 1 0 0) " />
+            </g>
+          </svg>
+          <p>The code has been copied to the clipboard</p>
+        </div>
+      </main>
+      <a id="next">
+        <svg fill="#b7b9cc" height="50px" width="50px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 330 330" xml:space="preserve">
+          <path id="XMLID_92_" transform="scale(-1, 1) translate(-330, 0)"
+            d="M111.213,165.004L250.607,25.607c5.858-5.858,5.858-15.355,0-21.213c-5.858-5.858-15.355-5.858-21.213,0.001
+      l-150,150.004C76.58,157.211,75,161.026,75,165.004c0,3.979,1.581,7.794,4.394,10.607l150,149.996
+      C232.322,328.536,236.161,330,240,330s7.678-1.464,10.607-4.394c5.858-5.858,5.858-15.355,0-21.213L111.213,165.004z" />
+        </svg>
+      </a>
     </div>
+  </div>
 
-    <!-- HANDLING FINISHING BUTTON -->
-    <script>
-      window.addEventListener("DOMContentLoaded", () => {});
-    </script>
+  <!-- HIGHLITING CURRENT PAGE CHAPTER IN SIDEBAR -->
+  <script>
+    window.addEventListener("DOMContentLoaded", () => {
+      const fullPath = window.location.pathname;
+      const fileNameWithExtension = fullPath.substring(
+        fullPath.lastIndexOf("/") + 1
+      );
+      const activeLink = document.querySelector(
+        `#sidebar a[href="build/${fileNameWithExtension}"]`
+      );
+      activeLink?.closest("li").classList.add("active");
+    });
+  </script>
 
-    <!-- HANDLING PREVIOUS AND NEXT QUESTIONS BUTTONS -->
-    <script>
-      window.addEventListener("DOMContentLoaded", () => {
-        const prevQuestionButton = document.getElementById("prev-question");
-        const nextQuestionButton = document.getElementById("next-question");
-        const questions = Array.from(document.querySelectorAll("#quiz ol li"));
-        const finishButton = document.getElementById("finish");
+  <!-- ADDING BUTTON TO COPY CODE -->
+  <script>
+    window.addEventListener("DOMContentLoaded", () => {
+      const codeBlocks = document.querySelectorAll(
+        "pre[class*='language'] > code"
+      );
+      codeBlocks.forEach((block) => {
+        const copyText = document.createElement("button");
+        copyText.innerText = "Copy code";
+        copyText.classList.add("copy");
+        copyText.addEventListener("click", async () => {
+          try {
+            const codeText = block.innerText;
+            await navigator.clipboard.writeText(codeText);
 
-        let currentIndex = questions.findIndex((item) =>
-          item.classList.contains("active")
-        );
+            const toast = document.getElementById("clipboard-copy-toast");
+            toast.classList.add("showing");
 
-        const updateQuestionState = (index) => {
-          console.log(index);
-          questions.forEach((question, i) => {
-            question.classList.toggle("active", i === index);
-          });
-
-          prevQuestionButton.style.visibility =
-            index === 0 ? "hidden" : "visible";
-          nextQuestionButton.style.visibility =
-            index === questions.length - 1 ? "hidden" : "visible";
-        };
-
-        const handlePrevQuestion = () => {
-          if (currentIndex > 0) {
-            currentIndex--;
-            updateQuestionState(currentIndex);
+            setTimeout(() => {
+              toast.classList.remove("showing");
+            }, 2000);
+          } catch (err) {
+            console.error("Ошибка при копировании:", err);
           }
-        };
-
-        const handleNextQuestion = () => {
-          if (currentIndex < questions.length - 1) {
-            currentIndex++;
-            updateQuestionState(currentIndex);
-          }
-        };
-
-        // Обработчики событий для кнопок
-        prevQuestionButton.addEventListener("click", handlePrevQuestion);
-        nextQuestionButton.addEventListener("click", handleNextQuestion);
-
-        // Инициализация состояния
-        updateQuestionState(currentIndex);
+        });
+        block.after(copyText);
       });
-    </script>
-  </body>
+    });
+  </script>
+
+  <!-- TOGGLING SIDEBAR -->
+  <script>
+    window.addEventListener("DOMContentLoaded", () => {
+      const toggleSdidebarIcon = document.getElementById(
+        "toggle-sdidebar-icon"
+      );
+      const sidebar = document.getElementById("sidebar");
+      const pageWrapper = document.getElementById("page-wrapper");
+      const pageHeader = document.querySelector("#page-wrapper > header");
+      const prevPageButton = document.getElementById("prev");
+
+      let isSidebarVisible = true;
+
+      toggleSdidebarIcon.addEventListener("click", () => {
+        if (isSidebarVisible) {
+          sidebar.classList.add("hiding");
+          pageWrapper.classList.add("growing");
+          pageHeader.classList.add("growing");
+          prevPageButton.classList.add("moving");
+        } else {
+          sidebar.classList.remove("hiding");
+          pageWrapper.classList.remove("growing");
+          pageHeader.classList.remove("growing");
+          prevPageButton.classList.remove("moving");
+        }
+
+        isSidebarVisible = !isSidebarVisible;
+      });
+    });
+  </script>
+
+  <!-- HANDLING PREVIOUS AND NEXT PAGE BUTTONS -->
+  <script>
+    window.addEventListener("DOMContentLoaded", () => {
+      const prevPageButton = document.getElementById("prev");
+      const nextPageButton = document.getElementById("next");
+
+      const currentLink = document.querySelector("#sidebar li.active a");
+      const links = Array.from(document.querySelectorAll("#sidebar li a"));
+
+      const currentIndex = links.findIndex(
+        (link) => link.href === currentLink?.href
+      );
+
+      const handlePrevPage = (index) => {
+        if (index > 0) {
+          const prevLink = links[index - 1].href;
+          location.href = prevLink;
+        }
+      };
+
+      const handleNextPage = (index) => {
+        if (index < links.length - 1) {
+          const nextLink = links[index + 1].href;
+          location.href = nextLink;
+        }
+      };
+
+      prevPageButton.addEventListener("click", () => {
+        handlePrevPage(currentIndex);
+      });
+
+      nextPageButton.addEventListener("click", () => {
+        handleNextPage(currentIndex);
+      });
+
+      window.addEventListener("keydown", (event) => {
+        if (event.key === "ArrowLeft") {
+          handlePrevPage(currentIndex);
+        } else if (event.key === "ArrowRight") {
+          handleNextPage(currentIndex);
+        }
+      });
+
+      if (currentIndex === 0) {
+        prevPageButton.remove();
+      }
+      if (currentIndex === links.length - 1) {
+        nextPageButton.remove();
+      }
+    });
+  </script>
+
+  <!-- HANDLING PREVIOUS AND NEXT QUESTIONS BUTTONS -->
+  <script>
+    window.addEventListener("DOMContentLoaded", () => {
+      const prevQuestionButton = document.getElementById("prev-question");
+      const nextQuestionButton = document.getElementById("next-question");
+
+      function prevQuestion() {
+        const activeQuestion = document.querySelector(".quiz ol li.active");
+        activeQuestion.classList.remove("active");
+        activeQuestion.previousElementSibling.classList.add("active");
+      }
+
+      function nextQuestion() {
+        const activeQuestion = document.querySelector(".quiz ol li.active");
+        activeQuestion.classList.remove("active");
+        activeQuestion.nextElementSibling.classList.add("active");
+      }
+
+      prevQuestionButton.addEventListener("click", prevQuestion);
+      nextQuestionButton.addEventListener("click", nextQuestion);
+    });
+  </script>
+
+  <!-- HANDLING ANSWERS IN QUIZ -->
+  <script>
+    window.addEventListener("DOMContentLoaded", () => {
+      const quizBlock = document.querySelector(".quiz");
+      const finishButton = document.getElementById("finish");
+      const questions = document.querySelectorAll(".quiz ol li");
+
+      // Функция для проверки, отвечены ли все вопросы
+      function checkAnswers() {
+        let allAnswered = true;
+
+        // Проверяем каждый вопрос
+        questions.forEach((question) => {
+          const radioButtons = question.querySelectorAll(
+            "input[type='radio']"
+          );
+          const isAnswered = Array.from(radioButtons).some(
+            (radio) => radio.checked
+          );
+
+          // Если хотя бы один вопрос не отвечает, блокируем кнопку
+          if (!isAnswered) {
+            allAnswered = false;
+          }
+        });
+
+        // Если все вопросы отвечены, активируем кнопку "Завершить", иначе блокируем
+        finishButton.disabled = !allAnswered;
+      }
+
+      // Слушаем изменения выбора для каждого вопроса
+      questions.forEach((question) => {
+        const radioButtons = question.querySelectorAll("input[type='radio']");
+        radioButtons.forEach((radio) => {
+          radio.addEventListener("change", checkAnswers);
+        });
+      });
+
+      checkAnswers();
+
+      finishButton.addEventListener("click", () => {
+        quizBlock.classList.add("finished");
+        document
+          .querySelector(".quiz ol li.active")
+          .classList.remove("active");
+        document
+          .querySelector(".quiz ol :first-child")
+          .classList.toggle("active");
+        const questions = document.querySelectorAll(".quiz ol li");
+        let correctAnswers = 0;
+
+        // Проходим по всем вопросам
+        questions.forEach((question) => {
+          const answers = question.querySelectorAll(".answer");
+          let selectedAnswer = null;
+          let correctAnswer = null;
+
+          // Находим выбранный ответ и правильный ответ
+          answers.forEach((answer) => {
+            const radio = answer.querySelector("input[type='radio']");
+            if (radio.checked) {
+              selectedAnswer = answer;
+            }
+            if (answer.getAttribute("data-correct") === "true") {
+              correctAnswer = answer;
+            }
+          });
+        });
+
+        document
+          .querySelectorAll(".quiz input")
+          .forEach((input) => (input.disabled = true));
+      });
+    });
+  </script>
+</body>
+
 </html>

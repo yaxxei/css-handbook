@@ -4,95 +4,101 @@ export function parseMarkdown(markdown) {
   return parse(markdown, {
     walkTokens(token) {
       if (token.type === "paragraph" && typeof token.raw === "string") {
-        if (token.raw.startsWith("::note") && token.raw.endsWith("::")) {
-          const content = token.raw
-            .replace("::note", "")
-            .replace("::", "")
-            .trim();
-
-          token.type = "html";
-          token.text = `
-          <div class="note">
-            <p>${content}</p>
-          </div>`;
-        }
-        if (token.raw.startsWith("::warning") && token.raw.endsWith("::")) {
-          const content = token.raw
-            .replace("::warning", "")
-            .replace("::", "")
-            .trim();
-
-          token.type = "html";
-          token.text = `
-          <div class="warning">
-            <p>${content}</p>
-          </div>`;
-        }
-        if (token.raw.startsWith("::tip") && token.raw.endsWith("::")) {
-          const content = token.raw
-            .replace("::tip", "")
-            .replace("::", "")
-            .trim();
-
-          token.type = "html";
-          token.text = `
-          <div class="tip">
-            <p>${content}</p>
-          </div>`;
-        }
-        if (token.raw.startsWith("::quiz") && token.raw.endsWith("::")) {
-          const content = token.raw
-            .replace("::quiz", "")
-            .replace("::", "")
-            .trim();
-
-          token.type = "html";
-          token.text = `
-          <div class="tip">
-            <p>${content}</p>
-          </div>`;
-        }
+        parseCustomToken(token, "note");
+        parseCustomToken(token, "warning");
+        parseCustomToken(token, "tip");
+        parseQuizToken(token);
       }
     },
   });
 }
 
-export function generateQuizHtml(quiz) {
-  const question = quiz.question;
-  const answers = quiz.answers;
-  const explanation = quiz.explanation;
+function parseCustomToken(token, type) {
+  const marker = `::${type}`;
+  if (token.raw.startsWith(marker) && token.raw.endsWith("::")) {
+    const content = token.raw.replace(marker, "").replace("::", "").trim();
 
-  return `
-    <li>
-      
-    </li>
-  `;
+    const lines = content.split("\n");
+
+    // Оборачиваем каждую строку в <p> тег
+    const htmlContent = lines.map((line) => `<p>${line.trim()}</p>`).join("");
+
+    token.type = "html";
+    token.text = `
+    <div class="${type}">
+      <p>${htmlContent}</p>
+    </div>`;
+  }
 }
 
-// function generateQuizHTML(questions, quizId) {
-//   const questionHTML = questions
-//     .map((q, index) => {
-//       const optionsHTML = q.options
-//         .map(
-//           (opt, optIndex) =>
-//             `<button class="quiz-option" data-answer="${q.answer}" data-index="${optIndex}">${opt}</button>`
-//         )
-//         .join("");
+function parseQuizToken(token) {
+  const marker = "::quiz";
+  if (token.raw.startsWith(marker) && token.raw.endsWith("::")) {
+    const content = token.raw.replace(marker, "").replace("::", "").trim();
+    const quizContent = parseQuizContent(content);
+    token.type = "html";
+    token.text = `
+    <div class="quiz">
+      <a id="prev-question">
+        <svg fill="#b7b9cc" height="50px" width="50px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 330 330" xml:space="preserve">
+          <path id="XMLID_92_" d="M111.213,165.004L250.607,25.607c5.858-5.858,5.858-15.355,0-21.213c-5.858-5.858-15.355-5.858-21.213,0.001 l-150,150.004C76.58,157.211,75,161.026,75,165.004c0,3.979,1.581,7.794,4.394,10.607l150,149.996 C232.322,328.536,236.161,330,240,330s7.678-1.464,10.607-4.394c5.858-5.858,5.858-15.355,0-21.213L111.213,165.004z"/>
+        </svg>
+      </a>
+      ${quizContent}
+      <a id="next-question">
+        <svg fill="#b7b9cc" height="50px" width="50px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 330 330" xml:space="preserve">
+          <path id="XMLID_92_" transform="scale(-1, 1) translate(-330, 0)" d="M111.213,165.004L250.607,25.607c5.858-5.858,5.858-15.355,0-21.213c-5.858-5.858-15.355-5.858-21.213,0.001 l-150,150.004C76.58,157.211,75,161.026,75,165.004c0,3.979,1.581,7.794,4.394,10.607l150,149.996 C232.322,328.536,236.161,330,240,330s7.678-1.464,10.607-4.394c5.858-5.858,5.858-15.355,0-21.213L111.213,165.004z"/>
+        </svg>
+      </a>
+      <button id="finish">Завершить</button>
+    </div>`;
+  }
+}
 
-//       return `
-//         <div class="quiz-question-block ${index === 0 ? "active" : ""}" data-question-index="${index}">
-//           <p class="quiz-question">${q.question}</p>
-//           <div class="quiz-options">${optionsHTML}</div>
-//         </div>`;
-//     })
-//     .join("");
+function parseQuizContent(content) {
+  const lines = content.split("\n");
+  let questionIndex = 1;
+  let html = `<ol>`;
 
-//   return `
-//     <div class="quiz" id="${quizId}">
-//       ${questionHTML}
-//       <div class="quiz-controls">
-//         <button class="prev-btn" disabled>Previous</button>
-//         <button class="next-btn">Next</button>
-//       </div>
-//     </div>`;
-// }
+  while (lines.length > 0) {
+    const question = lines.shift().trim(); // Первый вопрос
+    if (question) {
+      html += `<li class="${questionIndex === 1 ? "active" : ""}">`;
+      html += `<div class="question-${questionIndex}"><p>${question}</p>`;
+      html += parseAnswers(lines, questionIndex); // Обработка ответов
+      html += parseExplanation(lines); // Обработка объяснений
+      html += `</div></li>`;
+    }
+    questionIndex++;
+  }
+
+  html += `</ol>`;
+  return html;
+}
+
+function parseAnswers(lines, questionIndex) {
+  let answersHtml = "";
+  while (lines.length > 0) {
+    const answer = lines.shift().trim();
+    if (answer.startsWith("-") || answer.startsWith("+")) {
+      const isCorrect = answer.startsWith("+");
+      const answerText = answer.slice(1).trim();
+      answersHtml += `
+        <div class="answer" data-correct="${isCorrect}">
+          <label><input type="radio" name="answer-${questionIndex}" /> ${answerText}</label>
+        </div>`;
+    } else {
+      break;
+    }
+  }
+  return answersHtml;
+}
+
+function parseExplanation(lines) {
+  let explanationHtml = "";
+  if (lines.length > 0 && lines[0].startsWith("В")) {
+    const explanation = lines.shift().trim();
+    explanationHtml = `<div class="explanation">${explanation}</div>`;
+  }
+  return explanationHtml;
+}

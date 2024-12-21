@@ -1,4 +1,4 @@
-#quiz {
+.quiz {
   padding: 3rem 1rem;
   border: 1px solid #fff;
   width: var(--content-max-width);
@@ -11,7 +11,6 @@
     width: 50px;
     text-decoration: none;
     fill: var(--icon-color);
-    transition: 0.2s ease-in-out;
     cursor: pointer;
 
     display: flex;
@@ -21,7 +20,6 @@
     svg {
       width: 20px;
       fill: var(--icon-color);
-      transition: 0.2s ease-in-out;
     }
 
     &:hover {
@@ -35,16 +33,26 @@
 
   button#finish {
     display: none;
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: default;
+    }
   }
 
   ol {
     position: relative;
     width: 700px;
-    padding-left: 0;
-    padding-left: 3rem;
+    padding: 0 1rem !important;
 
     > li {
       display: none;
+
+      > * {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+      }
 
       .answer {
         padding-left: 2rem;
@@ -73,6 +81,37 @@
     }
   }
 
+  &.finished {
+    .answer[data-correct="true"] {
+      position: relative;
+      background-color: rgba(0, 255, 0, 0.2);
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        width: 3px;
+        background-color: green;
+      }
+    }
+    .answer:has(input:checked):not(.answer[data-correct="true"]) {
+      position: relative;
+      background-color: rgba(255, 0, 0, 0.2);
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        width: 3px;
+        background-color: red;
+      }
+    }
+  }
+
   &::before {
     content: "Quiz";
     position: absolute;
@@ -81,4 +120,17 @@
     font-weight: 600;
     display: flex;
   }
+}
+
+.quiz:not(:has(li.active:is(:first-child))) > a#prev-question {
+  transition: 0.2s ease-in-out;
+}
+.quiz ol:not(:has(li.active:is(:last-child))) ~ a#next-question {
+  transition: 0.2s ease-in-out;
+}
+.quiz:has(li.active:is(:first-child)) > a#prev-question {
+  visibility: hidden;
+}
+.quiz ol:has(li.active:is(:last-child)) ~ a#next-question {
+  visibility: hidden;
 }

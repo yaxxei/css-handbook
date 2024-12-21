@@ -29,14 +29,5 @@ export function createBuildDir() {
     );
   });
 
-  if (!existsSync(quizzesBuildDir)) {
-    mkdirSync(quizzesBuildDir, { recursive: true });
-  }
-
-  writeFileSync(
-    join(config.paths.quizzesBuildDir, "quizzes.json"),
-    JSON.stringify(config.quizzes)
-  );
-
   console.log("Styles copied successfully!");
 }

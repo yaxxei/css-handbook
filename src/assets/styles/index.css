@@ -22,6 +22,8 @@
   --toast-bg-color: #1d1f21;
   --icon-color: #737480;
   --bg-hover-color: #282e40;
+  --bg-quiz-correct-answer: green;
+  --bg-quiz-incorrect-answer: red;
 
   /* code syntax highliting */
   --code-text-color: #dcdcdc;
