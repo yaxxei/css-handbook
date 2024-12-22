@@ -1,12 +1,12 @@
 @media (max-width: 1400px) {
   .page {
     flex-direction: column;
-    align-items: center;
     gap: 2rem;
     padding: 1rem;
 
     .navigation-buttons {
-      display: flex;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
       justify-content: space-between;
       width: 100%;
 
@@ -17,14 +17,38 @@
         width: 100px;
         height: 60px;
       }
+
+      a#next {
+        grid-column: 2;
+        justify-self: end;
+      }
     }
   }
 }
 
-@media (max-width: 1000px) {
-  #sidebar {
-    left: calc(0px - var(--sidebar-width));
+@media (max-width: 1300px) {
+  main {
+    --content-max-width: 650px;
+  }
+}
 
+@media (max-width: 1100px) {
+  main {
+    --content-max-width: 550px;
+  }
+}
+
+@media (max-width: 900px) {
+  body {
+    font-size: 14px;
+  }
+  main {
+    --content-max-width: 450px;
+  }
+}
+
+@media (max-width: 768px) {
+  #sidebar {
     ~ #page-wrapper {
       margin-left: 0px;
 
@@ -36,6 +60,10 @@
         left: 2rem;
       }
     }
+
+    &[aria-hidden="false"] ~ #page-wrapper {
+      filter: brightness(0.4) grayscale(30%) blur(2px);
+    }
   }
 
   #clipboard-copy-toast {
@@ -46,6 +74,22 @@
 @media (max-width: 660px) {
   body,
   .copy {
-    font-size: 10px !important;
+    font-size: 12px !important;
+  }
+
+  main {
+    --content-max-width: 350px;
+  }
+
+  .page .navigation-buttons {
+    a#prev,
+    a#next {
+      width: 60px;
+      height: 40px;
+
+      svg {
+        width: 15px;
+      }
+    }
   }
 }

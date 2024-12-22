@@ -71,7 +71,6 @@ body {
   min-height: 100vh;
 }
 
-/* Обёртка страницы */
 #page-wrapper {
   margin-left: var(--sidebar-width);
   padding: 20px;

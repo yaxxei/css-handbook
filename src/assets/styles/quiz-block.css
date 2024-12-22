@@ -1,7 +1,6 @@
 .quiz {
   padding: 3rem 1rem;
   border: 1px solid #fff;
-  width: var(--content-max-width);
   display: flex;
   justify-content: center;
   position: relative;
@@ -119,6 +118,12 @@
     left: 1rem;
     font-weight: 600;
     display: flex;
+  }
+
+  .correct-answer-counter {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
   }
 }
 

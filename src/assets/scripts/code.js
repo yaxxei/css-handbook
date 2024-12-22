@@ -1,5 +1,7 @@
 window.addEventListener("DOMContentLoaded", () => {
   const codeBlocks = document.querySelectorAll("pre[class*='language'] > code");
+  const toast = document.getElementById("clipboard-copy-toast");
+
   codeBlocks.forEach((block) => {
     const copyText = document.createElement("button");
     copyText.innerText = "Copy code";
@@ -9,7 +11,6 @@ window.addEventListener("DOMContentLoaded", () => {
         const codeText = block.innerText;
         await navigator.clipboard.writeText(codeText);
 
-        const toast = document.getElementById("clipboard-copy-toast");
         toast.classList.add("showing");
 
         setTimeout(() => {

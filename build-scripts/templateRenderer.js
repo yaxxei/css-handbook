@@ -30,15 +30,15 @@ function getChaptersHtml(chapters, currentFileName) {
     const items = Object.entries(chapterObj).map(([id, value]) => {
       let subItems = "";
 
-      // Если есть подразделы, создаем вложенный список
       if (typeof value === "object" && value.children) {
         subItems = createList(value.children, true);
       }
 
       const isActive = currentFileName === id ? "active" : "";
+      const isQuiz = id.includes("quiz") ? "quiz-chapter" : "";
 
       const sectionHtml = `
-        <li class="${isActive}">
+        <li class="${isActive} ${isQuiz}">
           <a href="${id}.html">${value.name || value}</a>
           ${subItems}
         </li>

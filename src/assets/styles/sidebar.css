@@ -7,7 +7,33 @@
   top: 0;
   bottom: 0;
   left: 0;
+  z-index: 100;
   transition: var(--sidebar-hiding-time) ease-in-out;
+
+  > button {
+    position: absolute;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    left: calc(var(--sidebar-width) - 50px);
+
+    svg {
+      width: 30px;
+
+      g,
+      path {
+        stroke: var(--icon-color);
+        fill: var(--icon-color);
+        transition: 0.2s ease-in-out;
+      }
+
+      &:hover g,
+      &:hover path {
+        fill: var(--fg-color);
+        stroke: var(--fg-color);
+      }
+    }
+  }
 
   ol,
   ul {
