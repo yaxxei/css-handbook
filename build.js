@@ -1,9 +1,10 @@
-import { readdirSync, writeFileSync } from "fs";
-import { join } from "path";
+import { copyFileSync, readdirSync, writeFileSync } from "fs";
+import { basename, join } from "path";
 import { renderHtml } from "./build-scripts/templateRenderer.js";
 import { config } from "./config.js";
 import { createBuildDir } from "./build-scripts/buildDirCreator.js";
 
+const indexHtml = config.paths.indexHtmlDir;
 const contentDir = config.paths.contentDir;
 const buildDir = config.paths.buildDir;
 
@@ -16,6 +17,7 @@ files.forEach((file) => {
   const pageHtml = renderHtml(file);
 
   writeFileSync(join(buildDir, outputFilename), pageHtml);
+  copyFileSync(indexHtml, join(buildDir, basename(indexHtml)));
   console.log(`Generated: ${outputFilename}`);
 });
 
