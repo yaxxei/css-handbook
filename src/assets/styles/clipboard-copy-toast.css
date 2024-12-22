@@ -1,6 +1,6 @@
 #clipboard-copy-toast {
   position: fixed;
-  bottom: -3rem;
+  bottom: -10rem;
   left: 50%;
   padding: 0.5rem 1rem;
   background-color: var(--sidebar-bg-color);

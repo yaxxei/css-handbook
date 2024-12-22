@@ -1,0 +1,51 @@
+@media (max-width: 1400px) {
+  .page {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    padding: 1rem;
+
+    .navigation-buttons {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+
+      a#prev,
+      a#next {
+        position: static;
+        background-color: var(--sidebar-bg-color);
+        width: 100px;
+        height: 60px;
+      }
+    }
+  }
+}
+
+@media (max-width: 1000px) {
+  #sidebar {
+    left: calc(0px - var(--sidebar-width));
+
+    ~ #page-wrapper {
+      margin-left: 0px;
+
+      header {
+        left: 0px;
+      }
+
+      a#prev {
+        left: 2rem;
+      }
+    }
+  }
+
+  #clipboard-copy-toast {
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 660px) {
+  body,
+  .copy {
+    font-size: 10px !important;
+  }
+}
