@@ -122,15 +122,11 @@
   }
 }
 
-.quiz:not(:has(li.active:is(:first-child))) > a#prev-question {
-  transition: 0.2s ease-in-out;
-}
+.quiz:not(:has(li.active:is(:first-child))) > a#prev-question,
 .quiz ol:not(:has(li.active:is(:last-child))) ~ a#next-question {
   transition: 0.2s ease-in-out;
 }
-.quiz:has(li.active:is(:first-child)) > a#prev-question {
-  visibility: hidden;
-}
+.quiz:has(li.active:is(:first-child)) > a#prev-question,
 .quiz ol:has(li.active:is(:last-child)) ~ a#next-question {
   visibility: hidden;
 }

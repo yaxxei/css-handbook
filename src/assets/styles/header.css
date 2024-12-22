@@ -13,10 +13,6 @@ header {
   background-color: var(--bg-color);
   transition: var(--sidebar-hiding-time) ease-in-out;
 
-  &.growing {
-    left: 0;
-  }
-
   h1 {
     font-size: 24px;
     font-weight: 100;

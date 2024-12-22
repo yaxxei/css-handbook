@@ -13,7 +13,10 @@ export function renderHtml(file) {
   const pageHeading = markdown.split("\n")[0];
   const pageChapter = pageHeading.replace(/^(#|##) /, "").trim();
 
-  const htmlChapters = getChaptersHtml(config.chapters);
+  const htmlChapters = getChaptersHtml(
+    config.chapters,
+    file.replace(".md", "")
+  );
 
   return template
     .replace("{{content}}", htmlContent)
@@ -22,7 +25,7 @@ export function renderHtml(file) {
     .replace("{{chapters}}", htmlChapters);
 }
 
-function getChaptersHtml(chapters) {
+function getChaptersHtml(chapters, currentFileName) {
   const createList = (chapterObj, isOrdered) => {
     const items = Object.entries(chapterObj).map(([id, value]) => {
       let subItems = "";
@@ -32,16 +35,10 @@ function getChaptersHtml(chapters) {
         subItems = createList(value.children, true);
       }
 
-      if (value.quiz) {
-        subItems = subItems.replace(
-          "</ol>",
-          `<li class="quiz-chapter"><a href="${value.quiz}.html">Контрольные вопросы</a></li></ol>`
-        );
-      }
+      const isActive = currentFileName === id ? "active" : "";
 
-      // Добавляем основной элемент раздела
       const sectionHtml = `
-        <li>
+        <li class="${isActive}">
           <a href="${id}.html">${value.name || value}</a>
           ${subItems}
         </li>

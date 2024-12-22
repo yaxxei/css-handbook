@@ -7,11 +7,10 @@ export const config = {
   paths: {
     srcDir: join(rootDir, "src"),
     templatePath: join(rootDir, "src/templates/layout.html"),
-    stylesSrcDir: join(rootDir, "src/assets/styles"),
+    assetsSrcDir: join(rootDir, "src/assets"),
     contentDir: join(rootDir, "src/contents-simple"),
     buildDir: join(rootDir, "build"),
-    stylesBuildDir: join(rootDir, "build/assets/styles"),
-    quizzesBuildDir: join(rootDir, "build/quizzes"),
+    assetsBuildDir: join(rootDir, "build/assets"),
   },
   title: "The CSS Handbook",
   chapters: {
@@ -23,8 +22,8 @@ export const config = {
         "01-01-ways-to-add-css": "Способы подключения CSS",
         "01-02-linking-multiple-stylesheets":
           "Подключение нескольких файлов стилей",
+        "01-quiz": "Контрольные вопросы",
       },
-      quiz: "01-quiz",
     },
     "02-00-css-basics": {
       name: "Основы CSS",
@@ -34,16 +33,16 @@ export const config = {
         "02-03-properties-and-values": "Свойства и значения",
         "02-04-priority-and-overrides":
           "Приоритетность и переопределение стилей",
+        "02-quiz": "Контрольные вопросы",
       },
-      quiz: "02-quiz",
     },
     "03-00-text-and-fonts": {
       name: "Работа с текстом и шрифтами",
       children: {
         "03-01-text-formatting": "Форматирование текста",
         "03-02-linking-fonts": "Подключение шрифтов",
+        "03-quiz": "Контрольные вопросы",
       },
-      quiz: "03-quiz",
     },
     "04-00-block-styling": {
       name: "Оформление блоков",
@@ -51,16 +50,16 @@ export const config = {
         "04-01-box-model": "Box Model",
         "04-02-basic-flexbox": "Основы Flexbox",
         "04-03-basic-grid": "Основы Grid",
+        "04-quiz": "Контрольные вопросы",
       },
-      quiz: "04-quiz",
     },
     "05-00-responsive-design": {
       name: "Адаптивный дизайн",
       children: {
         "05-01-media-queries": "медиа-запросы",
         "05-02-dynamic-units": "Динамические единицы",
+        "05-quiz": "Контрольные вопросы",
       },
-      quiz: "05-quiz",
     },
   },
 };

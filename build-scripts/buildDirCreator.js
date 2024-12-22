@@ -1,33 +1,21 @@
-import {
-  copyFileSync,
-  existsSync,
-  mkdirSync,
-  readdirSync,
-  writeFileSync,
-} from "fs";
+import { copyFileSync, existsSync, mkdirSync, readdirSync, cpSync } from "fs";
 import { config } from "../config.js";
 import { join } from "path";
 
 const buildDir = config.paths.buildDir;
-const stylesSrcDir = config.paths.stylesSrcDir;
-const stylesBuildDir = config.paths.stylesBuildDir;
-const quizzesBuildDir = config.paths.quizzesBuildDir;
+const assetsSrcDir = config.paths.assetsSrcDir;
+const assetsBuildDir = config.paths.assetsBuildDir;
 
 export function createBuildDir() {
   if (!existsSync(buildDir)) {
     mkdirSync(buildDir, { recursive: true });
   }
 
-  if (!existsSync(stylesBuildDir)) {
-    mkdirSync(stylesBuildDir, { recursive: true });
+  if (!existsSync(assetsBuildDir)) {
+    mkdirSync(assetsBuildDir, { recursive: true });
   }
 
-  readdirSync(stylesSrcDir).forEach((styleFile) => {
-    copyFileSync(
-      join(stylesSrcDir, styleFile),
-      join(stylesBuildDir, styleFile)
-    );
-  });
+  cpSync(assetsSrcDir, assetsBuildDir, { recursive: true });
 
   console.log("Styles copied successfully!");
 }

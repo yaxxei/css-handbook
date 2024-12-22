@@ -1,6 +1,5 @@
 @import url("sidebar.css");
 @import url("content.css");
-@import url("scrollbar.css");
 @import url("header.css");
 @import url("note-block.css");
 @import url("warning-block.css");
@@ -58,6 +57,10 @@ button {
   cursor: pointer;
 }
 
+html {
+  scrollbar-color: var(--fg-color) var(--bg-color);
+}
+
 body {
   font-family: "Open Sans", sans-serif;
   font-size: 14px;
@@ -73,8 +76,4 @@ body {
   padding: 20px;
   flex-grow: 1;
   transition: var(--sidebar-hiding-time) ease-in-out;
-
-  &.growing {
-    margin-left: 0px;
-  }
 }

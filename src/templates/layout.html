@@ -26,7 +26,7 @@
   </head>
 
   <body>
-    <div id="sidebar">{{chapters}}</div>
+    <nav id="sidebar" aria-hidden="false">{{chapters}}</nav>
 
     <div id="page-wrapper">
       <header>
@@ -188,230 +188,19 @@
       </div>
     </div>
 
-    <!-- HIGHLITING CURRENT PAGE CHAPTER IN SIDEBAR -->
-    <script>
-      window.addEventListener("DOMContentLoaded", () => {
-        const fullPath = window.location.pathname;
-        const fileNameWithExtension = fullPath.substring(
-          fullPath.lastIndexOf("/") + 1
-        );
-        const activeLink = document.querySelector(
-          `#sidebar a[href="${fileNameWithExtension}"]`
-        );
-        activeLink?.closest("li").classList.add("active");
-      });
-    </script>
-
-    <!-- ADDING BUTTON TO COPY CODE -->
-    <script>
-      window.addEventListener("DOMContentLoaded", () => {
-        const codeBlocks = document.querySelectorAll(
-          "pre[class*='language'] > code"
-        );
-        codeBlocks.forEach((block) => {
-          const copyText = document.createElement("button");
-          copyText.innerText = "Copy code";
-          copyText.classList.add("copy");
-          copyText.addEventListener("click", async () => {
-            try {
-              const codeText = block.innerText;
-              await navigator.clipboard.writeText(codeText);
-
-              const toast = document.getElementById("clipboard-copy-toast");
-              toast.classList.add("showing");
-
-              setTimeout(() => {
-                toast.classList.remove("showing");
-              }, 2000);
-            } catch (err) {
-              console.error("Ошибка при копировании:", err);
-            }
-          });
-          block.after(copyText);
-        });
-      });
-    </script>
+    <!-- HANDLING BUTTON TO COPY CODE -->
+    <script src="assets/scripts/code.js"></script>
 
     <!-- TOGGLING SIDEBAR -->
-    <script>
-      window.addEventListener("DOMContentLoaded", () => {
-        const toggleSdidebarIcon = document.getElementById(
-          "toggle-sdidebar-icon"
-        );
-        const sidebar = document.getElementById("sidebar");
-        const pageWrapper = document.getElementById("page-wrapper");
-        const pageHeader = document.querySelector("#page-wrapper > header");
-        const prevPageButton = document.getElementById("prev");
-
-        let isSidebarVisible = true;
-
-        toggleSdidebarIcon.addEventListener("click", () => {
-          if (isSidebarVisible) {
-            sidebar.classList.add("hiding");
-            pageWrapper.classList.add("growing");
-            pageHeader.classList.add("growing");
-            prevPageButton.classList.add("moving");
-          } else {
-            sidebar.classList.remove("hiding");
-            pageWrapper.classList.remove("growing");
-            pageHeader.classList.remove("growing");
-            prevPageButton.classList.remove("moving");
-          }
-
-          isSidebarVisible = !isSidebarVisible;
-        });
-      });
-    </script>
+    <script src="assets/scripts/sidebar.js"></script>
 
     <!-- HANDLING PREVIOUS AND NEXT PAGE BUTTONS -->
-    <script>
-      window.addEventListener("DOMContentLoaded", () => {
-        const prevPageButton = document.getElementById("prev");
-        const nextPageButton = document.getElementById("next");
-
-        const currentLink = document.querySelector("#sidebar li.active a");
-        const links = Array.from(document.querySelectorAll("#sidebar li a"));
-
-        const currentIndex = links.findIndex(
-          (link) => link.href === currentLink?.href
-        );
-
-        const handlePrevPage = (index) => {
-          if (index > 0) {
-            const prevLink = links[index - 1].href;
-            location.href = prevLink;
-          }
-        };
-
-        const handleNextPage = (index) => {
-          if (index < links.length - 1) {
-            const nextLink = links[index + 1].href;
-            location.href = nextLink;
-          }
-        };
-
-        prevPageButton.addEventListener("click", () => {
-          handlePrevPage(currentIndex);
-        });
-
-        nextPageButton.addEventListener("click", () => {
-          handleNextPage(currentIndex);
-        });
-
-        window.addEventListener("keydown", (event) => {
-          if (event.key === "ArrowLeft") {
-            handlePrevPage(currentIndex);
-          } else if (event.key === "ArrowRight") {
-            handleNextPage(currentIndex);
-          }
-        });
-
-        if (currentIndex === 0) {
-          prevPageButton.remove();
-        }
-        if (currentIndex === links.length - 1) {
-          nextPageButton.remove();
-        }
-      });
-    </script>
+    <script src="assets/scripts/page-navigation.js"></script>
 
     <!-- HANDLING PREVIOUS AND NEXT QUESTIONS BUTTONS -->
-    <script>
-      window.addEventListener("DOMContentLoaded", () => {
-        const prevQuestionButton = document.getElementById("prev-question");
-        const nextQuestionButton = document.getElementById("next-question");
-
-        function prevQuestion() {
-          const activeQuestion = document.querySelector(".quiz ol li.active");
-          activeQuestion.classList.remove("active");
-          activeQuestion.previousElementSibling.classList.add("active");
-        }
-
-        function nextQuestion() {
-          const activeQuestion = document.querySelector(".quiz ol li.active");
-          activeQuestion.classList.remove("active");
-          activeQuestion.nextElementSibling.classList.add("active");
-        }
-
-        prevQuestionButton.addEventListener("click", prevQuestion);
-        nextQuestionButton.addEventListener("click", nextQuestion);
-      });
-    </script>
+    <script src="assets/scripts/quiz-navigation.js"></script>
 
     <!-- HANDLING ANSWERS IN QUIZ -->
-    <script>
-      window.addEventListener("DOMContentLoaded", () => {
-        const quizBlock = document.querySelector(".quiz");
-        const finishButton = document.getElementById("finish");
-        const questions = document.querySelectorAll(".quiz ol li");
-
-        // Функция для проверки, отвечены ли все вопросы
-        function checkAnswers() {
-          let allAnswered = true;
-
-          // Проверяем каждый вопрос
-          questions.forEach((question) => {
-            const radioButtons = question.querySelectorAll(
-              "input[type='radio']"
-            );
-            const isAnswered = Array.from(radioButtons).some(
-              (radio) => radio.checked
-            );
-
-            // Если хотя бы один вопрос не отвечает, блокируем кнопку
-            if (!isAnswered) {
-              allAnswered = false;
-            }
-          });
-
-          // Если все вопросы отвечены, активируем кнопку "Завершить", иначе блокируем
-          finishButton.disabled = !allAnswered;
-        }
-
-        // Слушаем изменения выбора для каждого вопроса
-        questions.forEach((question) => {
-          const radioButtons = question.querySelectorAll("input[type='radio']");
-          radioButtons.forEach((radio) => {
-            radio.addEventListener("change", checkAnswers);
-          });
-        });
-
-        checkAnswers();
-
-        finishButton.addEventListener("click", () => {
-          quizBlock.classList.add("finished");
-          document
-            .querySelector(".quiz ol li.active")
-            .classList.remove("active");
-          document
-            .querySelector(".quiz ol :first-child")
-            .classList.toggle("active");
-          const questions = document.querySelectorAll(".quiz ol li");
-          let correctAnswers = 0;
-
-          // Проходим по всем вопросам
-          questions.forEach((question) => {
-            const answers = question.querySelectorAll(".answer");
-            let selectedAnswer = null;
-            let correctAnswer = null;
-
-            // Находим выбранный ответ и правильный ответ
-            answers.forEach((answer) => {
-              const radio = answer.querySelector("input[type='radio']");
-              if (radio.checked) {
-                selectedAnswer = answer;
-              }
-              if (answer.getAttribute("data-correct") === "true") {
-                correctAnswer = answer;
-              }
-            });
-          });
-
-          document
-            .querySelectorAll(".quiz input")
-            .forEach((input) => (input.disabled = true));
-        });
-      });
-    </script>
+    <script src="assets/scripts/quiz-answers.js"></script>
   </body>
 </html>

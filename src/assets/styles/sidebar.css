@@ -64,7 +64,19 @@
     }
   }
 
-  &.hiding {
+  &[aria-hidden="true"] {
     left: calc(0px - var(--sidebar-width));
+
+    ~ #page-wrapper {
+      margin-left: 0px;
+
+      header {
+        left: 0px;
+      }
+
+      a#prev {
+        left: 2rem;
+      }
+    }
   }
 }

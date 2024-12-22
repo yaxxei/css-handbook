@@ -47,9 +47,9 @@
 
     &:hover {
       background-color: var(--bg-hover-color);
+
       svg {
         fill: var(--fg-color);
-        text-decoration: underline;
       }
     }
   }
@@ -57,10 +57,6 @@
   a#prev {
     left: calc(var(--sidebar-width) + 2rem);
     transition: var(--sidebar-hiding-time) ease-in-out;
-
-    &.moving {
-      left: 2rem;
-    }
   }
 
   a#next {
