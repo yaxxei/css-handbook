@@ -5,8 +5,8 @@ const rootDir = dirname(fileURLToPath(import.meta.url));
 
 export const config = {
   paths: {
-    indexHtmlDir: join(rootDir, "index.html"),
     srcDir: join(rootDir, "src"),
+    indexHtmlDir: join(rootDir, "src/index.html"),
     templatePath: join(rootDir, "src/templates/layout.html"),
     assetsSrcDir: join(rootDir, "src/assets"),
     contentDir: join(rootDir, "src/contents-simple"),
