@@ -16,6 +16,11 @@
         background-color: var(--sidebar-bg-color);
         width: 100px;
         height: 60px;
+
+        svg {
+          width: 20px;
+          height: 20px;
+        }
       }
 
       a#next {
@@ -36,12 +41,17 @@
   main {
     --content-max-width: 550px;
   }
+
+  #clipboard-copy-toast {
+    font-size: 12px;
+  }
 }
 
 @media (max-width: 900px) {
   body {
     font-size: 14px;
   }
+
   main {
     --content-max-width: 450px;
   }
@@ -77,6 +87,10 @@
     font-size: 12px !important;
   }
 
+  #clipboard-copy-toast {
+    font-size: 10px;
+  }
+
   main {
     --content-max-width: 350px;
   }
@@ -89,6 +103,7 @@
 
       svg {
         width: 15px;
+        height: 15px;
       }
     }
   }
